@@ -5,7 +5,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { DxfFloorPlanVisual, type DxfLoadResult } from "../geometry-source";
 import { useHallStore } from "../store";
-import { stageVisualCenter } from "../stageGeometry";
+import { fitStageToRoom } from "../stageGeometry";
 import { getPolygonBounds, polygonToArray, type Bounds, type Point } from "../placement/geometry";
 import type { PlacedObject } from "../placement/types";
 import type { DoorArea } from "../placement/doorAreas";
@@ -167,14 +167,19 @@ function SceneContent({
         <DoorAreaMarker key={door.id} door={door} origin={origin} />
       ))}
 
-      {selectedStage ? (
-        <StageMarker
-          center={stageVisualCenter(selectedStage, geometry.dxfUnits)}
-          width={selectedStage.width}
-          depth={selectedStage.depth}
-          rotation={selectedStage.rotation}
-          origin={origin}
-        />
+      {selectedStage && geometry.bounds ? (
+        (() => {
+          const fitted = fitStageToRoom(selectedStage, geometry.dxfUnits, getPolygonBounds(polygonToArray(geometry.bounds)));
+          return (
+            <StageMarker
+              center={{ x: fitted.x, y: fitted.y }}
+              width={fitted.width}
+              depth={fitted.depth}
+              rotation={selectedStage.rotation}
+              origin={origin}
+            />
+          );
+        })()
       ) : null}
 
       {placedObjects.map((object) =>

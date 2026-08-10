@@ -7,7 +7,7 @@ import { InstancedGLBModel, type GLBPosition } from "./gl-resources/InstancedGLB
 import { FloorPlanGLBModel } from "./FloorPlanGLBModel";
 import { dxfToWorld, dxfLengthToWorld, type SceneTransform } from "./coordinateTransform";
 import { useHallStore } from "../store";
-import { stageVisualCenter } from "../stageGeometry";
+import { fitStageToRoom, type RoomBounds } from "../stageGeometry";
 import type { PlacedObject } from "../placement/types";
 import type { StageGeometry } from "../geometry-source/types";
 
@@ -99,12 +99,23 @@ function StagePlaceholder({ width, depth, y, rotY }: { width: number; depth: num
   );
 }
 
-function Stage3D({ transform, stage, dxfUnits }: { transform: SceneTransform; stage: StageGeometry; dxfUnits: string }) {
-  const world = dxfToWorld(stageVisualCenter(stage, dxfUnits), transform);
+function Stage3D({
+  transform,
+  stage,
+  dxfUnits,
+  room,
+}: {
+  transform: SceneTransform;
+  stage: StageGeometry;
+  dxfUnits: string;
+  room: RoomBounds;
+}) {
+  const fitted = fitStageToRoom(stage, dxfUnits, room);
+  const world = dxfToWorld(fitted, transform);
   const y = stage.position3D?.z ?? 0;
   const rotY = THREE.MathUtils.degToRad(stage.rotation || 0);
-  const width = dxfLengthToWorld(stage.width, transform);
-  const depth = dxfLengthToWorld(stage.depth, transform);
+  const width = dxfLengthToWorld(fitted.width, transform);
+  const depth = dxfLengthToWorld(fitted.depth, transform);
 
   return (
     <group position={[world.x, 0, world.z]}>
@@ -144,6 +155,12 @@ export function Hall3DSceneContent() {
 
   const transform: SceneTransform | null = scaleFactor ? { center: sceneCenter, scaleFactor } : null;
   const groundScale = scaleFactor || 50;
+  const room: RoomBounds = {
+    minX: sceneCenter.x - dxfBoundsSize.width / 2,
+    maxX: sceneCenter.x + dxfBoundsSize.width / 2,
+    minY: sceneCenter.y - dxfBoundsSize.height / 2,
+    maxY: sceneCenter.y + dxfBoundsSize.height / 2,
+  };
 
   return (
     <>
@@ -170,7 +187,7 @@ export function Hall3DSceneContent() {
         <>
           <Furniture3D transform={transform} glbFileName={selectedTableArea?.glbFileName} kind="table" />
           <Furniture3D transform={transform} glbFileName={selectedTableArea?.singleChair?.glbFileName} kind="chair" />
-          {selectedStage ? <Stage3D transform={transform} stage={selectedStage} dxfUnits={geometry.dxfUnits} /> : null}
+          {selectedStage ? <Stage3D transform={transform} stage={selectedStage} dxfUnits={geometry.dxfUnits} room={room} /> : null}
         </>
       ) : null}
     </>
