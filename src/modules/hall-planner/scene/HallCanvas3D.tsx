@@ -68,7 +68,7 @@ export function HallCanvas3D({ mode }: { mode: "orbit" | "walk" }) {
       onCreated={({ gl, camera }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping;
         gl.shadowMap.enabled = tier?.shadowsEnabled ?? true;
-        gl.setClearColor("#000000", 1);
+        gl.setClearColor("#f6f7fb", 1);
         if (mode === "walk" && walkStart) {
           camera.rotation.set(0, THREE.MathUtils.degToRad(walkStart.rotation), 0, "YXZ");
         }

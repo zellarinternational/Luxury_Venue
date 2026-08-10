@@ -5,6 +5,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { DxfFloorPlanVisual, type DxfLoadResult } from "../geometry-source";
 import { useHallStore } from "../store";
+import { stageVisualCenter } from "../stageGeometry";
 import { getPolygonBounds, polygonToArray, type Bounds, type Point } from "../placement/geometry";
 import type { PlacedObject } from "../placement/types";
 import type { DoorArea } from "../placement/doorAreas";
@@ -94,21 +95,19 @@ function ChairMarker({ object, origin }: { object: Extract<PlacedObject, { type:
 }
 
 function StageMarker({
-  x,
-  y,
+  center,
   width,
   depth,
   rotation,
   origin,
 }: {
-  x: number;
-  y: number;
+  center: { x: number; y: number };
   width: number;
   depth: number;
   rotation: number;
   origin: { x: number; y: number };
 }) {
-  const [sx, sy] = toScene(x, y, origin);
+  const [sx, sy] = toScene(center.x, center.y, origin);
   return (
     <mesh position={[sx, sy, 0.15]} rotation={[0, 0, (-rotation * Math.PI) / 180]}>
       <planeGeometry args={[width, depth]} />
@@ -170,8 +169,7 @@ function SceneContent({
 
       {selectedStage ? (
         <StageMarker
-          x={selectedStage.x}
-          y={selectedStage.y}
+          center={stageVisualCenter(selectedStage, geometry.dxfUnits)}
           width={selectedStage.width}
           depth={selectedStage.depth}
           rotation={selectedStage.rotation}
@@ -279,7 +277,11 @@ export function HallCanvas2D() {
 
   return (
     <div ref={containerRef} onClick={handleCanvasClick} className="h-full w-full">
-      <Canvas orthographic camera={{ position: [0, 0, 100], zoom: 1, near: 0.1, far: 1000 }}>
+      <Canvas
+        orthographic
+        camera={{ position: [0, 0, 100], zoom: 1, near: 0.1, far: 1000 }}
+        onCreated={({ gl }) => gl.setClearColor("#f6f7fb", 1)}
+      >
         <CameraFramer center={center} span={span} />
         {origin ? <SceneContent origin={origin} onDxfLoaded={setDxfResult} /> : <DxfLoaderBootstrap onLoaded={setDxfResult} />}
         <OrbitControls enabled={!isSelectingCustomArea} enableRotate={false} enableDamping={false} target={[center.x, center.y, 0]} />

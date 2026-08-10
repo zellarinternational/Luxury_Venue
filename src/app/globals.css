@@ -6,88 +6,66 @@
  * the @theme block below. Do not reintroduce raw hex/arbitrary-value
  * classes in components — extend this file instead.
  *
- * Font pairing (--font-display / --font-text) is a placeholder using the
- * scaffold's Geist fonts; the actual Apple/Anthropic/Salesforce-caliber
- * pairing is a design decision to finalize during the /design-system review.
+ * Light theme only, modeled on Stripe's actual design language: white/
+ * off-white surfaces, a near-black "ink navy" for text (not pure black —
+ * Stripe's is ~#0A2540) rather than true black, their signature indigo
+ * ("blurple", #635BFF) as the sole accent, hairline borders, soft
+ * low-opacity ambient shadows, and Inter as the font — the closest freely
+ * licensed match to Stripe's proprietary "Sohne"-derived typeface.
  */
 
 :root {
-  /* Neutral ramp (OKLCH) — dark theme is default per current product direction */
-  --color-neutral-0: oklch(15% 0 0);
-  --color-neutral-50: oklch(18% 0 0);
-  --color-neutral-100: oklch(22% 0 0);
-  --color-neutral-200: oklch(27% 0.002 260);
-  --color-neutral-300: oklch(35% 0.003 260);
-  --color-neutral-400: oklch(48% 0.004 260);
-  --color-neutral-500: oklch(62% 0.004 260);
-  --color-neutral-600: oklch(75% 0.003 260);
-  --color-neutral-700: oklch(85% 0.002 260);
-  --color-neutral-800: oklch(93% 0.001 260);
-  --color-neutral-900: oklch(98% 0 0);
-  --color-neutral-1000: oklch(100% 0 0);
+  /* Neutral ramp (OKLCH) — warm-cool neutral (slight blue undertone),
+     matching Stripe's ink-navy text family rather than true gray/black. */
+  --color-neutral-0: oklch(100% 0 0);
+  --color-neutral-50: oklch(98.4% 0.003 255);
+  --color-neutral-100: oklch(96.5% 0.005 255);
+  --color-neutral-200: oklch(92% 0.007 255);
+  --color-neutral-300: oklch(85% 0.009 255);
+  --color-neutral-400: oklch(70% 0.013 255);
+  --color-neutral-500: oklch(54% 0.02 255);
+  --color-neutral-600: oklch(40% 0.025 255);
+  --color-neutral-700: oklch(28% 0.03 255);
+  --color-neutral-800: oklch(20% 0.035 255);
+  --color-neutral-900: oklch(15% 0.04 255);
+  --color-neutral-1000: oklch(15% 0.04 255);
 
-  /* Accent ramp — replaces the old single hardcoded gold hex */
-  --color-accent-50: oklch(97% 0.03 95);
-  --color-accent-100: oklch(92% 0.06 95);
-  --color-accent-300: oklch(82% 0.11 90);
-  --color-accent-500: oklch(74% 0.13 85);
-  --color-accent-700: oklch(58% 0.12 80);
-  --color-accent-900: oklch(38% 0.09 75);
+  /* Accent ramp — Stripe's "blurple" family, hue/chroma measured from their
+     real hex values (#635BFF primary, #4F46E5 hover/strong) via sRGB->OKLab. */
+  --color-accent-50: oklch(97% 0.012 288);
+  --color-accent-100: oklch(94.8% 0.027 290);
+  --color-accent-300: oklch(76% 0.15 283);
+  --color-accent-500: oklch(57.8% 0.235 278); /* #635BFF */
+  --color-accent-700: oklch(51.1% 0.23 277); /* #4F46E5 */
+  --color-accent-900: oklch(36% 0.17 277);
 
   /* Semantic surface/text roles — components consume these, never the raw ramp */
   --color-background: var(--color-neutral-0);
-  --color-foreground: var(--color-neutral-1000);
+  --color-foreground: var(--color-neutral-900);
   --color-surface: var(--color-neutral-50);
-  --color-surface-raised: var(--color-neutral-100);
+  --color-surface-raised: var(--color-neutral-0);
   --color-border: var(--color-neutral-200);
   --color-text-muted: var(--color-neutral-500);
   --color-accent: var(--color-accent-500);
   --color-accent-strong: var(--color-accent-700);
-  --color-focus-ring: var(--color-accent-300);
+  --color-focus-ring: var(--color-accent-500);
 
-  /* Radius — small controlled set */
+  /* Radius — small controlled set; Stripe favors moderate, not pill-shaped, corners */
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-full: 9999px;
 
-  /* Shadow — restrained, elevation-based */
-  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.16);
-  --shadow-md: 0 4px 16px oklch(0% 0 0 / 0.24);
-  --shadow-lg: 0 12px 40px oklch(0% 0 0 / 0.32);
+  /* Shadow — soft, low-opacity ambient elevation (Stripe-style, not the old high-contrast dark-theme shadows) */
+  --shadow-sm: 0 1px 2px oklch(20% 0.03 255 / 0.06), 0 1px 1px oklch(20% 0.03 255 / 0.04);
+  --shadow-md: 0 4px 12px oklch(20% 0.03 255 / 0.08), 0 2px 4px oklch(20% 0.03 255 / 0.04);
+  --shadow-lg: 0 16px 40px oklch(20% 0.03 255 / 0.12), 0 4px 12px oklch(20% 0.03 255 / 0.06);
 
   /* Motion — named durations/easings, no ad hoc animation values */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --duration-slow: 320ms;
-}
-
-:root[data-theme="light"] {
-  --color-neutral-0: oklch(100% 0 0);
-  --color-neutral-50: oklch(98% 0 0);
-  --color-neutral-100: oklch(96% 0.001 260);
-  --color-neutral-200: oklch(91% 0.002 260);
-  --color-neutral-300: oklch(82% 0.003 260);
-  --color-neutral-400: oklch(65% 0.004 260);
-  --color-neutral-500: oklch(52% 0.004 260);
-  --color-neutral-600: oklch(40% 0.003 260);
-  --color-neutral-700: oklch(28% 0.002 260);
-  --color-neutral-800: oklch(18% 0.001 260);
-  --color-neutral-900: oklch(10% 0 0);
-  --color-neutral-1000: oklch(6% 0 0);
-
-  --color-background: var(--color-neutral-0);
-  --color-foreground: var(--color-neutral-1000);
-  --color-surface: var(--color-neutral-50);
-  --color-surface-raised: var(--color-neutral-1000);
-  --color-border: var(--color-neutral-200);
-  --color-text-muted: var(--color-neutral-500);
-  --color-focus-ring: var(--color-accent-500);
-
-  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.06);
-  --shadow-md: 0 4px 16px oklch(0% 0 0 / 0.08);
-  --shadow-lg: 0 12px 40px oklch(0% 0 0 / 0.12);
 }
 
 @theme inline {
@@ -106,8 +84,8 @@
   --radius-lg: var(--radius-lg);
   --radius-full: var(--radius-full);
 
-  --font-display: var(--font-geist-sans);
-  --font-text: var(--font-geist-sans);
+  --font-display: var(--font-inter);
+  --font-text: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 

@@ -54,8 +54,12 @@ export const dxfGeometrySource: FloorPlanGeometrySource = {
       x: s.x ?? 0,
       y: s.y ?? 0,
       rotation: s.rotation ?? 0,
-      width: s.width ?? 0,
-      depth: s.depth ?? 0,
+      // Legacy defaults (src/config/venues.ts) for stages missing a
+      // dimension in the source data — e.g. "Sample Stage 2/3" only ever
+      // had `width` set. Falling back to 0 instead collapses the stage's
+      // visual footprint to a zero-area plane (invisible in 2D/3D).
+      width: s.width || 1140,
+      depth: s.depth || 200,
       backstageDepth: s.backstageDepth,
       backstageSide: s.backstageSide,
       position3D: s.position3D,

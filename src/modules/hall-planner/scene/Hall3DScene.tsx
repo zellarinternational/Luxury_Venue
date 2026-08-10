@@ -7,6 +7,7 @@ import { InstancedGLBModel, type GLBPosition } from "./gl-resources/InstancedGLB
 import { FloorPlanGLBModel } from "./FloorPlanGLBModel";
 import { dxfToWorld, dxfLengthToWorld, type SceneTransform } from "./coordinateTransform";
 import { useHallStore } from "../store";
+import { stageVisualCenter } from "../stageGeometry";
 import type { PlacedObject } from "../placement/types";
 import type { StageGeometry } from "../geometry-source/types";
 
@@ -98,8 +99,8 @@ function StagePlaceholder({ width, depth, y, rotY }: { width: number; depth: num
   );
 }
 
-function Stage3D({ transform, stage }: { transform: SceneTransform; stage: StageGeometry }) {
-  const world = dxfToWorld(stage, transform);
+function Stage3D({ transform, stage, dxfUnits }: { transform: SceneTransform; stage: StageGeometry; dxfUnits: string }) {
+  const world = dxfToWorld(stageVisualCenter(stage, dxfUnits), transform);
   const y = stage.position3D?.z ?? 0;
   const rotY = THREE.MathUtils.degToRad(stage.rotation || 0);
   const width = dxfLengthToWorld(stage.width, transform);
@@ -146,13 +147,13 @@ export function Hall3DSceneContent() {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.7} />
       <directionalLight position={[5, 10, 5]} intensity={0.8} castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
-      <hemisphereLight args={["#ffffff", "#444444", 0.3]} />
+      <hemisphereLight args={["#ffffff", "#c7cad1", 0.4]} />
 
       <mesh position={[0, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[(dxfBoundsSize.width / groundScale) * 1.2, (dxfBoundsSize.height / groundScale) * 1.2]} />
-        <meshStandardMaterial color="#1a1a1a" />
+        <meshStandardMaterial color="#e4e6ec" />
       </mesh>
 
       {geometry.glbAssetUrl ? (
@@ -169,7 +170,7 @@ export function Hall3DSceneContent() {
         <>
           <Furniture3D transform={transform} glbFileName={selectedTableArea?.glbFileName} kind="table" />
           <Furniture3D transform={transform} glbFileName={selectedTableArea?.singleChair?.glbFileName} kind="chair" />
-          {selectedStage ? <Stage3D transform={transform} stage={selectedStage} /> : null}
+          {selectedStage ? <Stage3D transform={transform} stage={selectedStage} dxfUnits={geometry.dxfUnits} /> : null}
         </>
       ) : null}
     </>
