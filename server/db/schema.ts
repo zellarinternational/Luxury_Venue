@@ -266,6 +266,13 @@ export const doorAreasRelations = relations(doorAreas, ({ one }) => ({
   }),
 }));
 
+export const technicalMarkingsRelations = relations(technicalMarkings, ({ one }) => ({
+  floorPlan: one(floorPlans, {
+    fields: [technicalMarkings.floorPlanId],
+    references: [floorPlans.id],
+  }),
+}));
+
 export const eventThemesRelations = relations(eventThemes, ({ one }) => ({
   venue: one(venues, {
     fields: [eventThemes.venueId],

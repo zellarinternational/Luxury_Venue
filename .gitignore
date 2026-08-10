@@ -46,3 +46,7 @@ next-env.d.ts
 
 # markdown docs are not pushed to GitHub
 *.md
+
+# large GLB/DXF assets — local-dev stand-in for R2, not committed.
+# Regenerate with: npx tsx scripts/copy-legacy-assets.ts
+/public/assets
