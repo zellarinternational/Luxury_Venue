@@ -23,15 +23,24 @@ export const dxfGeometrySource: FloorPlanGeometrySource = {
     // height, chairsPerTable, spacing, singleChair, etc); the dedicated
     // polygon/seatingMode columns are the authoritative source for those two
     // fields specifically (see server/db/seed/migrate-from-legacy.ts).
-    const tableAreas = floorPlan.tableAreas.map(
-      (ta) =>
-        ({
-          ...((ta.tableConfig ?? {}) as Record<string, unknown>),
-          id: ta.id,
-          namedPoints: ta.polygon ?? undefined,
-          seatingMode: ta.seatingMode,
-        }) as unknown as TableConfig,
-    );
+    // glbFileName/singleChair.glbFileName are bare legacy filenames inside
+    // that jsonb blob — resolve them the same way top-level asset columns
+    // are resolved, or the 3D scene's GLB loads 404 (this bit Phase 4a's DXF
+    // asset loading too; see src/lib/assets.ts).
+    const tableAreas = floorPlan.tableAreas.map((ta) => {
+      const raw = (ta.tableConfig ?? {}) as Record<string, unknown>;
+      const singleChair = raw.singleChair as Record<string, unknown> | undefined;
+      return {
+        ...raw,
+        id: ta.id,
+        namedPoints: ta.polygon ?? undefined,
+        seatingMode: ta.seatingMode,
+        glbFileName: getAssetUrl(raw.glbFileName as string | null | undefined),
+        singleChair: singleChair
+          ? { ...singleChair, glbFileName: getAssetUrl(singleChair.glbFileName as string | null | undefined) }
+          : undefined,
+      } as unknown as TableConfig;
+    });
 
     const doorAreas: DoorArea[] = floorPlan.doorAreas
       .filter((d): d is typeof d & { polygon: NonNullable<typeof d.polygon> } => d.polygon != null)
@@ -61,6 +70,7 @@ export const dxfGeometrySource: FloorPlanGeometrySource = {
       scaleFactor: floorPlan.scaleFactor,
       bounds: floorPlan.bounds,
       positionOffset3D: floorPlan.positionOffset3D,
+      walkStartPosition: floorPlan.walkStartPosition,
       tableAreas,
       doorAreas,
       stages,

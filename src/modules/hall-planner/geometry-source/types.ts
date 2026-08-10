@@ -28,6 +28,8 @@ export interface FloorPlanGeometry {
   scaleFactor: number | null;
   bounds: Polygon4 | null;
   positionOffset3D: { x: number; y: number; z: number } | null;
+  /** Suggested first-person camera spawn point + facing angle for walk mode. */
+  walkStartPosition: { x: number; y: number; z: number; rotation: number } | null;
   /** Full table configs (not just polygons) — placement needs width/spacing/singleChair/etc, not just the area shape. */
   tableAreas: TableConfig[];
   doorAreas: DoorArea[];

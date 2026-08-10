@@ -15,12 +15,17 @@ const HallCanvas2D = dynamic(
   () => import("@/modules/hall-planner/scene/HallCanvas2D").then((m) => m.HallCanvas2D),
   { ssr: false },
 );
+const HallCanvas3D = dynamic(
+  () => import("@/modules/hall-planner/scene/HallCanvas3D").then((m) => m.HallCanvas3D),
+  { ssr: false },
+);
 
 export function HallClient() {
   const searchParams = useSearchParams();
   const venueSlug = searchParams.get("venue");
   const loadGeometry = useHallStore((s) => s.loadGeometry);
   const reset = useHallStore((s) => s.reset);
+  const viewMode = useHallStore((s) => s.viewMode);
   const [geometryError, setGeometryError] = useState<string | null>(null);
   const [geometryLoading, setGeometryLoading] = useState(false);
 
@@ -104,7 +109,7 @@ export function HallClient() {
             </Button>
           </Link>
         </div>
-        <HallCanvas2D />
+        {viewMode === "2d" ? <HallCanvas2D /> : <HallCanvas3D mode={viewMode} />}
       </div>
     </div>
   );

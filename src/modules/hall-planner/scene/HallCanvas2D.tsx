@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { DxfFloorPlanVisual, type DxfLoadResult } from "../geometry-source";
 import { useHallStore } from "../store";
-import { getPolygonBounds, polygonToArray, type Bounds } from "../placement/geometry";
+import { getPolygonBounds, polygonToArray, type Bounds, type Point } from "../placement/geometry";
 import type { PlacedObject } from "../placement/types";
 import type { DoorArea } from "../placement/doorAreas";
 import type { Polygon4 } from "../placement/geometry";
@@ -16,6 +16,7 @@ const COLORS = {
   stage: "#6b7fd7",
   table: "#d4af37",
   chair: "#8a8a8a",
+  customArea: "#4ade80",
 } as const;
 
 /**
@@ -27,6 +28,16 @@ const COLORS = {
  */
 function toScene(x: number, y: number, origin: { x: number; y: number }): [number, number] {
   return [x - origin.x, -(y - origin.y)];
+}
+
+/** Inverse of toScene — converts a click in scene space back to raw DXF units. */
+function toDxf(sceneX: number, sceneY: number, origin: { x: number; y: number }): Point {
+  return { x: sceneX + origin.x, y: origin.y - sceneY };
+}
+
+/** Same zoom formula CameraFramer applies to the orthographic camera — kept in sync so screen-to-world click mapping matches what's rendered. */
+function computeZoom(canvasWidth: number, canvasHeight: number, span: number): number {
+  return Math.min(canvasWidth, canvasHeight) / (span * 1.3);
 }
 
 function PolygonOutline({ polygon, origin, color, opacity = 0.5 }: { polygon: Polygon4; origin: { x: number; y: number }; color: string; opacity?: number }) {
@@ -106,24 +117,51 @@ function StageMarker({
   );
 }
 
-function SceneContent({ origin, onDxfLoaded }: { origin: { x: number; y: number }; onDxfLoaded: (result: DxfLoadResult) => void }) {
+function CustomAreaPointMarkers({ origin }: { origin: { x: number; y: number } }) {
+  const points = useHallStore((s) => s.customAreaPoints);
+  return (
+    <>
+      {points.map((p, i) => {
+        const [x, y] = toScene(p.x, p.y, origin);
+        return (
+          <mesh key={i} position={[x, y, 0.25]}>
+            <circleGeometry args={[8, 16]} />
+            <meshBasicMaterial color={COLORS.customArea} />
+          </mesh>
+        );
+      })}
+    </>
+  );
+}
+
+function SceneContent({
+  origin,
+  onDxfLoaded,
+}: {
+  origin: { x: number; y: number };
+  onDxfLoaded: (result: DxfLoadResult) => void;
+}) {
   const geometry = useHallStore((s) => s.geometry);
   const placedObjects = useHallStore((s) => s.placedObjects);
-  const selectedTableAreaId = useHallStore((s) => s.selectedTableAreaId);
+  const selectedTableArea = useHallStore((s) => s.selectedTableArea());
   const selectedStageId = useHallStore((s) => s.selectedStageId);
 
   if (!geometry) return null;
 
-  const selectedTableArea = geometry.tableAreas.find((ta) => ta.id === selectedTableAreaId);
   const selectedStage = geometry.stages.find((s) => s.id === selectedStageId);
 
   return (
     <>
       <ambientLight intensity={1} />
       {geometry.dxfAssetUrl ? <DxfFloorPlanVisual assetUrl={geometry.dxfAssetUrl} onLoaded={onDxfLoaded} /> : null}
+      <CustomAreaPointMarkers origin={origin} />
 
       {selectedTableArea?.namedPoints ? (
-        <PolygonOutline polygon={selectedTableArea.namedPoints} origin={origin} color={COLORS.tableArea} />
+        <PolygonOutline
+          polygon={selectedTableArea.namedPoints}
+          origin={origin}
+          color={selectedTableArea.id === "__custom__" ? COLORS.customArea : COLORS.tableArea}
+        />
       ) : null}
 
       {geometry.doorAreas.map((door) => (
@@ -154,12 +192,10 @@ function SceneContent({ origin, onDxfLoaded }: { origin: { x: number; y: number 
 
 /** Bounds (in origin-relative scene space) to frame the camera on: the selected table area if known, else the whole DXF drawing. */
 function useFrameBounds(dxfBounds: Bounds | null, origin: { x: number; y: number } | null) {
-  const selectedTableAreaId = useHallStore((s) => s.selectedTableAreaId);
-  const geometry = useHallStore((s) => s.geometry);
+  const tableArea = useHallStore((s) => s.selectedTableArea());
 
   return useMemo(() => {
     if (!origin) return null;
-    const tableArea = geometry?.tableAreas.find((ta) => ta.id === selectedTableAreaId);
     if (tableArea?.namedPoints) {
       const raw = getPolygonBounds(polygonToArray(tableArea.namedPoints));
       return {
@@ -178,7 +214,28 @@ function useFrameBounds(dxfBounds: Bounds | null, origin: { x: number; y: number
       };
     }
     return null;
-  }, [dxfBounds, origin, geometry, selectedTableAreaId]);
+  }, [dxfBounds, origin, tableArea]);
+}
+
+/**
+ * Applies camera framing imperatively instead of via the `<Canvas camera>`
+ * prop (which only applies once, at mount). This used to be done by
+ * remounting the whole `<Canvas>` with a changed `key` once framing became
+ * known — correct, but it briefly creates a second WebGL context per view
+ * (the DXF-viewer's own offscreen parse context, plus one per Canvas
+ * mount), and this app can end up with several 2D/3D canvases churning in
+ * a session; keeping the same context and just re-pointing the camera
+ * avoids that.
+ */
+function CameraFramer({ center, span }: { center: { x: number; y: number }; span: number }) {
+  const { camera, size } = useThree();
+  useEffect(() => {
+    camera.position.set(center.x, center.y, 100);
+    const cam = camera as unknown as { zoom: number; updateProjectionMatrix: () => void };
+    cam.zoom = computeZoom(size.width, size.height, span);
+    cam.updateProjectionMatrix();
+  }, [camera, center.x, center.y, span, size.width, size.height]);
+  return null;
 }
 
 /**
@@ -194,24 +251,40 @@ export function HallCanvas2D() {
   const [dxfResult, setDxfResult] = useState<DxfLoadResult | null>(null);
   const origin = dxfResult?.origin ?? null;
   const frame = useFrameBounds(dxfResult?.bounds ?? null, origin);
+  const isSelectingCustomArea = useHallStore((s) => s.isSelectingCustomArea);
+  const addCustomAreaPoint = useHallStore((s) => s.addCustomAreaPoint);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const center = frame ? { x: (frame.minX + frame.maxX) / 2, y: (frame.minY + frame.maxY) / 2 } : { x: 0, y: 0 };
   const span = frame ? Math.max(frame.maxX - frame.minX, frame.maxY - frame.minY) : 2000;
 
+  // Custom-area point placement is handled here, at the DOM level, rather
+  // than via an R3F mesh's onClick/raycasting — deliberately, after an
+  // invisible click-catcher plane never registered a single hit in this
+  // Canvas (confirmed even on the always-visible, always-mounted table
+  // markers), while native DOM pointer events on the canvas element fired
+  // reliably throughout. Screen -> scene -> DXF is simple, well-defined
+  // math for a top-down orthographic camera, so this sidesteps the
+  // raycasting issue entirely rather than chasing it further.
+  const handleCanvasClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!isSelectingCustomArea || !origin || !containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const offsetX = event.clientX - rect.left;
+    const offsetY = event.clientY - rect.top;
+    const zoom = computeZoom(rect.width, rect.height, span);
+    const sceneX = center.x + (offsetX - rect.width / 2) / zoom;
+    const sceneY = center.y + (rect.height / 2 - offsetY) / zoom;
+    addCustomAreaPoint(toDxf(sceneX, sceneY, origin));
+  };
+
   return (
-    <Canvas
-      key={frame ? "framed" : "unframed"}
-      orthographic
-      camera={{ position: [center.x, center.y, 100], zoom: 1, near: 0.1, far: 1000 }}
-      onCreated={({ camera, size }) => {
-        const cam = camera as unknown as { zoom: number; updateProjectionMatrix: () => void };
-        cam.zoom = Math.min(size.width, size.height) / (span * 1.3);
-        cam.updateProjectionMatrix();
-      }}
-    >
-      {origin ? <SceneContent origin={origin} onDxfLoaded={setDxfResult} /> : <DxfLoaderBootstrap onLoaded={setDxfResult} />}
-      <OrbitControls enableRotate={false} enableDamping={false} target={[center.x, center.y, 0]} />
-    </Canvas>
+    <div ref={containerRef} onClick={handleCanvasClick} className="h-full w-full">
+      <Canvas orthographic camera={{ position: [0, 0, 100], zoom: 1, near: 0.1, far: 1000 }}>
+        <CameraFramer center={center} span={span} />
+        {origin ? <SceneContent origin={origin} onDxfLoaded={setDxfResult} /> : <DxfLoaderBootstrap onLoaded={setDxfResult} />}
+        <OrbitControls enabled={!isSelectingCustomArea} enableRotate={false} enableDamping={false} target={[center.x, center.y, 0]} />
+      </Canvas>
+    </div>
   );
 }
 

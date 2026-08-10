@@ -581,7 +581,8 @@
           "arrowSpacing": 100,
           "arrowHeight3D": 0.5
         },
-        "description": "Main floor plan with multiple dining areas"
+        "description": "Main floor plan with multiple dining areas",
+        "scaleFactor": 50
       }
     ]
   },
@@ -1035,7 +1036,8 @@
           "arrowSpacing": 100,
           "arrowHeight3D": 0.5
         },
-        "description": "Main floor plan with multiple dining areas"
+        "description": "Main floor plan with multiple dining areas",
+        "scaleFactor": 50
       }
     ]
   }

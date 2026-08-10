@@ -1,8 +1,14 @@
 import { create } from "zustand";
 import { calculateTableArrangement } from "./placement/tableCalculator";
+import { getPolygonBounds, polygonToArray, type Point, type Polygon4 } from "./placement/geometry";
 import type { DoorArea } from "./placement/doorAreas";
 import type { PlacedObject, SeatingMode, TableConfig } from "./placement/types";
 import type { FloorPlanGeometry, StageGeometry } from "./geometry-source/types";
+
+export type ViewMode = "2d" | "orbit" | "walk";
+
+/** Sentinel selectedTableAreaId used while a custom-drawn area is active. */
+const CUSTOM_AREA_ID = "__custom__";
 
 interface HallState {
   geometry: FloorPlanGeometry | null;
@@ -11,27 +17,70 @@ interface HallState {
   guestCount: number;
   seatingModeOverride: SeatingMode | null;
   placedObjects: PlacedObject[];
+  viewMode: ViewMode;
+
+  /**
+   * DXF-units-per-3D-unit. Comes from `geometry.scaleFactor` (DB) when set;
+   * otherwise computed once at runtime from the floor GLB's footprint (see
+   * scene/gl-resources and scene/Hall3DScene's FloorPlanGLBModel) and cached
+   * here — the single source every 3D consumer reads, so it can't drift out
+   * of sync the way the legacy app's hardcoded 47.5 constant did.
+   */
+  scaleFactor: number | null;
+  setScaleFactor: (factor: number) => void;
+
+  isSelectingCustomArea: boolean;
+  customAreaPoints: Point[];
+  customTableArea: TableConfig | null;
+  startCustomAreaSelection: () => void;
+  addCustomAreaPoint: (point: Point) => void;
+  clearCustomAreaSelection: () => void;
 
   loadGeometry: (geometry: FloorPlanGeometry) => void;
   selectTableArea: (tableAreaId: string) => void;
   selectStage: (stageId: string | null) => void;
   setGuestCount: (count: number) => void;
   setSeatingMode: (mode: SeatingMode | null) => void;
+  setViewMode: (mode: ViewMode) => void;
   reset: () => void;
 
   selectedTableArea: () => TableConfig | null;
   selectedStage: () => StageGeometry | null;
+  /**
+   * DXF-unit bounds center, used as the 3D scene's coordinate-transform
+   * origin. Computed once in `loadGeometry` and stored as a plain field
+   * (not a selector method like `selectedTableArea`/`selectedStage` above)
+   * — a selector that builds a fresh `{x, y}` object literal on every call
+   * never satisfies Zustand's reference-equality check, which caused an
+   * infinite render loop the moment anything read it via
+   * `useHallStore((s) => s.sceneCenter())`.
+   */
+  sceneCenter: Point | null;
+}
+
+function centerOf(bounds: Polygon4): Point {
+  const b = getPolygonBounds(polygonToArray(bounds));
+  return { x: (b.minX + b.maxX) / 2, y: (b.minY + b.maxY) / 2 };
+}
+
+function resolveTableArea(
+  geometry: FloorPlanGeometry | null,
+  tableAreaId: string | null,
+  customTableArea: TableConfig | null,
+): TableConfig | null {
+  if (tableAreaId === CUSTOM_AREA_ID) return customTableArea;
+  return geometry?.tableAreas.find((ta) => ta.id === tableAreaId) ?? null;
 }
 
 function recompute(
   geometry: FloorPlanGeometry | null,
   tableAreaId: string | null,
+  customTableArea: TableConfig | null,
   guestCount: number,
   modeOverride: SeatingMode | null,
 ): PlacedObject[] {
-  if (!geometry || !tableAreaId) return [];
-  const tableArea = geometry.tableAreas.find((ta) => ta.id === tableAreaId);
-  if (!tableArea) return [];
+  const tableArea = resolveTableArea(geometry, tableAreaId, customTableArea);
+  if (!geometry || !tableArea) return [];
 
   const config: TableConfig = modeOverride ? { ...tableArea, seatingMode: modeOverride } : tableArea;
   const doorAreas: DoorArea[] = geometry.doorAreas;
@@ -39,10 +88,14 @@ function recompute(
 }
 
 /**
- * Hall planner client state. Scope note: this is the Phase 4a (2D-only)
- * shape — custom-area drawing, manual table/chair count overrides, and
- * walk-mode camera state from the legacy src/store/hallStore.ts are
- * deferred to Phase 4b alongside the 3D scene port, not silently dropped.
+ * Hall planner client state.
+ *
+ * Scope note (Phase 4b): "manual table/chair count overrides" from the
+ * legacy src/store/hallStore.ts were deliberately not ported — grepping the
+ * legacy app found no UI ever called `setManualTableCount`/
+ * `setManualChairCount`; it was dead state that only echoed back into the
+ * shared-config JSON shape. Custom-area drawing and 3D view-mode/scale-factor
+ * state (the two Phase 4b items that *were* real, used features) are below.
  */
 export const useHallStore = create<HallState>((set, get) => ({
   geometry: null,
@@ -51,19 +104,32 @@ export const useHallStore = create<HallState>((set, get) => ({
   guestCount: 0,
   seatingModeOverride: null,
   placedObjects: [],
+  viewMode: "2d",
+  scaleFactor: null,
+  sceneCenter: null,
+
+  isSelectingCustomArea: false,
+  customAreaPoints: [],
+  customTableArea: null,
 
   loadGeometry: (geometry) =>
     set({
       geometry,
       selectedTableAreaId: geometry.tableAreas[0]?.id ?? null,
       selectedStageId: geometry.stages[0]?.id ?? null,
-      placedObjects: recompute(geometry, geometry.tableAreas[0]?.id ?? null, get().guestCount, get().seatingModeOverride),
+      scaleFactor: geometry.scaleFactor ?? null,
+      sceneCenter: geometry.bounds ? centerOf(geometry.bounds) : null,
+      customTableArea: null,
+      isSelectingCustomArea: false,
+      customAreaPoints: [],
+      placedObjects: recompute(geometry, geometry.tableAreas[0]?.id ?? null, null, get().guestCount, get().seatingModeOverride),
     }),
 
   selectTableArea: (tableAreaId) =>
     set((state) => ({
       selectedTableAreaId: tableAreaId,
-      placedObjects: recompute(state.geometry, tableAreaId, state.guestCount, state.seatingModeOverride),
+      customTableArea: tableAreaId === CUSTOM_AREA_ID ? state.customTableArea : null,
+      placedObjects: recompute(state.geometry, tableAreaId, state.customTableArea, state.guestCount, state.seatingModeOverride),
     })),
 
   selectStage: (stageId) => set({ selectedStageId: stageId }),
@@ -71,14 +137,73 @@ export const useHallStore = create<HallState>((set, get) => ({
   setGuestCount: (count) =>
     set((state) => ({
       guestCount: count,
-      placedObjects: recompute(state.geometry, state.selectedTableAreaId, count, state.seatingModeOverride),
+      placedObjects: recompute(state.geometry, state.selectedTableAreaId, state.customTableArea, count, state.seatingModeOverride),
     })),
 
   setSeatingMode: (mode) =>
     set((state) => ({
       seatingModeOverride: mode,
-      placedObjects: recompute(state.geometry, state.selectedTableAreaId, state.guestCount, mode),
+      placedObjects: recompute(state.geometry, state.selectedTableAreaId, state.customTableArea, state.guestCount, mode),
     })),
+
+  setViewMode: (mode) => set({ viewMode: mode }),
+
+  setScaleFactor: (factor) =>
+    set((state) => (state.scaleFactor == null ? { scaleFactor: factor } : {})),
+
+  startCustomAreaSelection: () =>
+    set({
+      isSelectingCustomArea: true,
+      customAreaPoints: [],
+      customTableArea: null,
+    }),
+
+  addCustomAreaPoint: (point) =>
+    set((state) => {
+      const points = [...state.customAreaPoints, point];
+      if (points.length < 4) return { customAreaPoints: points };
+
+      const bounds = getPolygonBounds(points);
+      const customArea: TableConfig = {
+        id: CUSTOM_AREA_ID,
+        width: 72,
+        height: 72,
+        chairsPerTable: 8,
+        columnSpacing: 3,
+        tableSpacing: 2,
+        columns: 2,
+        startX: bounds.minX,
+        startY: bounds.minY,
+        endX: bounds.maxX,
+        endY: bounds.maxY,
+        namedPoints: {
+          topLeft: points[0],
+          topRight: points[1],
+          bottomRight: points[2],
+          bottomLeft: points[3],
+        },
+      };
+
+      return {
+        customAreaPoints: points,
+        isSelectingCustomArea: false,
+        customTableArea: customArea,
+        selectedTableAreaId: CUSTOM_AREA_ID,
+        placedObjects: recompute(state.geometry, CUSTOM_AREA_ID, customArea, state.guestCount, state.seatingModeOverride),
+      };
+    }),
+
+  clearCustomAreaSelection: () =>
+    set((state) => {
+      const fallbackId = state.geometry?.tableAreas[0]?.id ?? null;
+      return {
+        isSelectingCustomArea: false,
+        customAreaPoints: [],
+        customTableArea: null,
+        selectedTableAreaId: fallbackId,
+        placedObjects: recompute(state.geometry, fallbackId, null, state.guestCount, state.seatingModeOverride),
+      };
+    }),
 
   reset: () =>
     set({
@@ -88,11 +213,17 @@ export const useHallStore = create<HallState>((set, get) => ({
       guestCount: 0,
       seatingModeOverride: null,
       placedObjects: [],
+      viewMode: "2d",
+      scaleFactor: null,
+      sceneCenter: null,
+      isSelectingCustomArea: false,
+      customAreaPoints: [],
+      customTableArea: null,
     }),
 
   selectedTableArea: () => {
     const state = get();
-    return state.geometry?.tableAreas.find((ta) => ta.id === state.selectedTableAreaId) ?? null;
+    return resolveTableArea(state.geometry, state.selectedTableAreaId, state.customTableArea);
   },
   selectedStage: () => {
     const state = get();

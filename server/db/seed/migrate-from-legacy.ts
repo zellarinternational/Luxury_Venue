@@ -116,6 +116,8 @@ interface LegacyFloorPlan {
   dxfUnits?: string;
   width?: number;
   height?: number;
+  /** DXF-units-per-3D-world-unit for the 3D scene (scene/coordinateTransform.ts). Hand-verified per venue, not auto-derived — see that file's doc comment for why. */
+  scaleFactor?: number;
   positionOffset3D?: { x: number; y: number; z: number };
   walkStartPosition?: { x: number; y: number; z: number; rotation: number };
   cornerPoints?: Polygon4;
@@ -234,6 +236,7 @@ async function seedFloorPlanGraph(
       dxfAssetUrl: fp.fileName,
       glbAssetUrl: fp.glbFileName,
       dxfUnits: fp.dxfUnits ?? "inches",
+      scaleFactor: fp.scaleFactor ?? null,
       widthUnits: fp.width,
       heightUnits: fp.height,
       bounds: fp.cornerPoints ?? null,
