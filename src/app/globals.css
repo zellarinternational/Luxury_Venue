@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — single source of truth for color, type, spacing, radius,
+ * and motion. Tailwind utilities (bg-surface, text-accent, etc.) read from
+ * the @theme block below. Do not reintroduce raw hex/arbitrary-value
+ * classes in components — extend this file instead.
+ *
+ * Font pairing (--font-display / --font-text) is a placeholder using the
+ * scaffold's Geist fonts; the actual Apple/Anthropic/Salesforce-caliber
+ * pairing is a design decision to finalize during the /design-system review.
+ */
+
+:root {
+  /* Neutral ramp (OKLCH) — dark theme is default per current product direction */
+  --color-neutral-0: oklch(15% 0 0);
+  --color-neutral-50: oklch(18% 0 0);
+  --color-neutral-100: oklch(22% 0 0);
+  --color-neutral-200: oklch(27% 0.002 260);
+  --color-neutral-300: oklch(35% 0.003 260);
+  --color-neutral-400: oklch(48% 0.004 260);
+  --color-neutral-500: oklch(62% 0.004 260);
+  --color-neutral-600: oklch(75% 0.003 260);
+  --color-neutral-700: oklch(85% 0.002 260);
+  --color-neutral-800: oklch(93% 0.001 260);
+  --color-neutral-900: oklch(98% 0 0);
+  --color-neutral-1000: oklch(100% 0 0);
+
+  /* Accent ramp — replaces the old single hardcoded gold hex */
+  --color-accent-50: oklch(97% 0.03 95);
+  --color-accent-100: oklch(92% 0.06 95);
+  --color-accent-300: oklch(82% 0.11 90);
+  --color-accent-500: oklch(74% 0.13 85);
+  --color-accent-700: oklch(58% 0.12 80);
+  --color-accent-900: oklch(38% 0.09 75);
+
+  /* Semantic surface/text roles — components consume these, never the raw ramp */
+  --color-background: var(--color-neutral-0);
+  --color-foreground: var(--color-neutral-1000);
+  --color-surface: var(--color-neutral-50);
+  --color-surface-raised: var(--color-neutral-100);
+  --color-border: var(--color-neutral-200);
+  --color-text-muted: var(--color-neutral-500);
+  --color-accent: var(--color-accent-500);
+  --color-accent-strong: var(--color-accent-700);
+  --color-focus-ring: var(--color-accent-300);
+
+  /* Radius — small controlled set */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Shadow — restrained, elevation-based */
+  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.16);
+  --shadow-md: 0 4px 16px oklch(0% 0 0 / 0.24);
+  --shadow-lg: 0 12px 40px oklch(0% 0 0 / 0.32);
+
+  /* Motion — named durations/easings, no ad hoc animation values */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+}
+
+:root[data-theme="light"] {
+  --color-neutral-0: oklch(100% 0 0);
+  --color-neutral-50: oklch(98% 0 0);
+  --color-neutral-100: oklch(96% 0.001 260);
+  --color-neutral-200: oklch(91% 0.002 260);
+  --color-neutral-300: oklch(82% 0.003 260);
+  --color-neutral-400: oklch(65% 0.004 260);
+  --color-neutral-500: oklch(52% 0.004 260);
+  --color-neutral-600: oklch(40% 0.003 260);
+  --color-neutral-700: oklch(28% 0.002 260);
+  --color-neutral-800: oklch(18% 0.001 260);
+  --color-neutral-900: oklch(10% 0 0);
+  --color-neutral-1000: oklch(6% 0 0);
+
+  --color-background: var(--color-neutral-0);
+  --color-foreground: var(--color-neutral-1000);
+  --color-surface: var(--color-neutral-50);
+  --color-surface-raised: var(--color-neutral-1000);
+  --color-border: var(--color-neutral-200);
+  --color-text-muted: var(--color-neutral-500);
+  --color-focus-ring: var(--color-accent-500);
+
+  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.06);
+  --shadow-md: 0 4px 16px oklch(0% 0 0 / 0.08);
+  --shadow-lg: 0 12px 40px oklch(0% 0 0 / 0.12);
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-border: var(--color-border);
+  --color-text-muted: var(--color-text-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-strong: var(--color-accent-strong);
+  --color-focus-ring: var(--color-focus-ring);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  --font-display: var(--font-geist-sans);
+  --font-text: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-text);
+}
+
+/* Visible, on-brand focus ring everywhere — replaces the old bare focus:outline-none pattern */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
