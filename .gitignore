@@ -43,3 +43,6 @@ next-env.d.ts
 
 # local Postgres data volume
 /pgdata
+
+# markdown docs are not pushed to GitHub
+*.md

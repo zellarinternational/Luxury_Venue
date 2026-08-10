@@ -1,0 +1,912 @@
+{
+  "eventCategories": [
+    {
+      "id": "wedding",
+      "name": "Wedding",
+      "description": "Perfect for wedding ceremonies and receptions"
+    },
+    {
+      "id": "conference",
+      "name": "Conference",
+      "description": "Ideal for business conferences and meetings"
+    },
+    {
+      "id": "gala-dinner",
+      "name": "Gala Dinner",
+      "description": "Elegant spaces for formal dining events"
+    },
+    {
+      "id": "corporate-event",
+      "name": "Corporate Event",
+      "description": "Professional venues for corporate functions"
+    },
+    {
+      "id": "exhibition",
+      "name": "Exhibition",
+      "description": "Spacious areas for exhibitions and trade shows"
+    },
+    {
+      "id": "concert",
+      "name": "Concert",
+      "description": "Venues suitable for musical performances"
+    },
+    {
+      "id": "birthday-party",
+      "name": "Birthday Party",
+      "description": "Fun spaces for birthday celebrations"
+    },
+    {
+      "id": "product-launch",
+      "name": "Product Launch",
+      "description": "Modern venues for product presentations"
+    },
+    {
+      "id": "workshop",
+      "name": "Workshop",
+      "description": "Interactive spaces for workshops and training"
+    },
+    {
+      "id": "cultural-event",
+      "name": "Cultural Event",
+      "description": "Venues for cultural performances and events"
+    }
+  ],
+  "venueEvents": {
+    "infinity-ballroom": [
+      {
+        "id": "toifa",
+        "name": "Award Night",
+        "description": "Award Night event with custom decorative elements",
+        "objects": [
+          {
+            "id": "toifa-main",
+            "name": "Brand Logo",
+            "fileName": "toifa.dxf",
+            "glbFileName": "logo.glb",
+            "glbRotation": 0,
+            "worldPosition": {
+              "x": -2.04,
+              "y": 0,
+              "z": 13.87
+            },
+            "x": 1070,
+            "y": 850,
+            "rotation": 0,
+            "color": "#0074a4",
+            "description": "Toifa Brand Logo"
+          },
+          {
+            "id": "toifa-banner-wall",
+            "name": "Feature Banner",
+            "glbFileName": "toifa_banner_1.glb",
+            "glbRotation": 90,
+            "x": -729,
+            "y": 1843,
+            "width": 600,
+            "height": 220,
+            "rotation": -90,
+            "showIn2D": false,
+            "mountPoints": {
+              "topLeft": {
+                "x": -730,
+                "y": 2028,
+                "z": 195
+              },
+              "topRight": {
+                "x": -730,
+                "y": 1645,
+                "z": 195
+              },
+              "bottomRight": {
+                "x": -730,
+                "y": 1645,
+                "z": 0
+              },
+              "bottomLeft": {
+                "x": -730,
+                "y": 2028,
+                "z": 0
+              }
+            },
+            "mountPointsWorld": {
+              "topLeft": {
+                "x": -40.5,
+                "y": 4.26,
+                "z": -12.4
+              },
+              "topRight": {
+                "x": -40.5,
+                "y": 4.26,
+                "z": -4.5
+              },
+              "bottomRight": {
+                "x": -40.5,
+                "y": 0,
+                "z": -4.5
+              },
+              "bottomLeft": {
+                "x": -40.5,
+                "y": 0,
+                "z": -12.4
+              }
+            },
+            "description": "Wall-mounted Toifa banner"
+          },
+          {
+            "id": "toifa-banner-wall-2",
+            "name": "Feature Banner 2",
+            "glbFileName": "toifa_banner_2.glb",
+            "glbRotation": 0,
+            "showIn2D": false,
+            "x": 1070,
+            "y": 850,
+            "rotation": 0,
+            "mountPointsWorld": {
+              "topLeft": {
+                "x": -47.25,
+                "y": 4.26,
+                "z": -12.76
+              },
+              "topRight": {
+                "x": -47.25,
+                "y": 4.26,
+                "z": -29
+              },
+              "bottomRight": {
+                "x": -47.25,
+                "y": 0,
+                "z": -29
+              },
+              "bottomLeft": {
+                "x": -47.25,
+                "y": 0,
+                "z": -12.76
+              }
+            },
+            "description": "Wall-mounted Toifa banner"
+          },
+          {
+            "id": "toifa-banner-wall-3",
+            "name": "Feature Banner 3",
+            "glbFileName": "toifa_banner_3.glb",
+            "glbRotation": 0,
+            "showIn2D": false,
+            "x": -729,
+            "y": 1843,
+            "rotation": 0,
+            "mountPointsWorld": {
+              "topLeft": {
+                "x": -49,
+                "y": 4.26,
+                "z": -29
+              },
+              "topRight": {
+                "x": -23,
+                "y": 4.26,
+                "z": -29
+              },
+              "bottomRight": {
+                "x": -23,
+                "y": 0,
+                "z": -29
+              },
+              "bottomLeft": {
+                "x": -49,
+                "y": 0,
+                "z": -29
+              }
+            },
+            "description": "Wall-mounted Toifa banner"
+          },
+          {
+            "id": "toifa-banner-wall-4",
+            "name": "Feature Banner 4",
+            "glbFileName": "toifa_banner_1.glb",
+            "glbRotation": 0,
+            "showIn2D": false,
+            "x": 1070,
+            "y": 850,
+            "rotation": 0,
+            "mountPointsWorld": {
+              "topLeft": {
+                "x": 23.69,
+                "y": 3,
+                "z": 15.55
+              },
+              "topRight": {
+                "x": 23.69,
+                "y": 3,
+                "z": 20
+              },
+              "bottomRight": {
+                "x": 23.69,
+                "y": 0,
+                "z": 20
+              },
+              "bottomLeft": {
+                "x": 23.69,
+                "y": 0,
+                "z": 15.55
+              }
+            },
+            "description": "Wall-mounted Toifa banner"
+          },
+          {
+            "id": "toifa-car",
+            "name": "Car",
+            "fileName": "toifa_car.dxf",
+            "glbFileName": "car.glb",
+            "glbWidth": 200,
+            "glbHeight": 143,
+            "glbDepth": 200,
+            "glbRotation": 90,
+            "scale": 1.3,
+            "worldPosition": {
+              "x": -14.5,
+              "y": 0,
+              "z": 17.31
+            },
+            "x": 400,
+            "y": 760,
+            "rotation": 0,
+            "width": 285,
+            "height": 143,
+            "description": "Toifa Car"
+          },
+          {
+            "id": "console",
+            "name": "Console",
+            "fileName": "console.dxf",
+            "glbFileName": "gh_console.glb",
+            "glbRotation": 0,
+            "depth": 100,
+            "scale": 1.5,
+            "worldPosition": {
+              "x": 50,
+              "y": 0,
+              "z": -1.1
+            },
+            "x": 3150,
+            "y": 1500,
+            "rotation": -90,
+            "description": "Console"
+          },
+          {
+            "id": "stall-1",
+            "name": "Stall 1",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "booth_1.glb",
+            "glbWidth": 128,
+            "glbHeight": 70,
+            "glbDepth": 70,
+            "glbRotation": 0,
+            "worldPosition": {
+              "x": -12.5,
+              "y": 0,
+              "z": -15
+            },
+            "x": 606,
+            "y": 2084,
+            "rotation": -90,
+            "width": 108,
+            "height": 108,
+            "description": "Stall 1"
+          },
+          {
+            "id": "stall-3",
+            "name": "Stall 3",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "booth_1.glb",
+            "worldPosition": {
+              "x": -12.5,
+              "y": 0,
+              "z": -4.9
+            },
+            "x": 606,
+            "glbWidth": 108,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 0,
+            "y": 1740,
+            "rotation": -90,
+            "width": 108,
+            "height": 108,
+            "description": "Stall 3"
+          },
+          {
+            "id": "stall-5",
+            "name": "Stall 5",
+            "fileName": "stall_1.dxf",
+            "glbFileName": "booth_1.glb",
+            "worldPosition": {
+              "x": -16.5,
+              "y": 0,
+              "z": -9.32
+            },
+            "x": 402,
+            "glbWidth": 108,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 0,
+            "y": 1908,
+            "rotation": 90,
+            "width": 108,
+            "height": 108,
+            "description": "Stall 5"
+          },
+          {
+            "id": "stall-6",
+            "name": "Stall 6",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "booth_1.glb",
+            "worldPosition": {
+              "x": -16.5,
+              "y": 0,
+              "z": -1.1
+            },
+            "x": 402,
+            "glbWidth": 108,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 0,
+            "y": 1490,
+            "rotation": 0,
+            "width": 108,
+            "height": 108,
+            "description": "Stall 6"
+          },
+          {
+            "id": "back-stall-1",
+            "name": "Back Stall 1",
+            "fileName": "bar_stool.dxf",
+            "glbFileName": "bar_stool.glb",
+            "glbRotation": 180,
+            "worldPosition": {
+              "x": -35.5,
+              "y": 0,
+              "z": -12.5
+            },
+            "x": -305,
+            "y": 1940,
+            "rotation": 0,
+            "description": "Back Stall 1"
+          },
+          {
+            "id": "back-stall-2",
+            "name": "Back Stall 2",
+            "fileName": "bar_stool.dxf",
+            "glbFileName": "bar_stool.glb",
+            "glbRotation": 180,
+            "worldPosition": {
+              "x": -32.5,
+              "y": 0,
+              "z": -12.5
+            },
+            "x": -177,
+            "y": 1940,
+            "rotation": 0,
+            "description": "Back Stall 2"
+          },
+          {
+            "id": "back-stall-3",
+            "name": "Back Stall 3",
+            "fileName": "bar_stool.dxf",
+            "glbFileName": "bar_stool.glb",
+            "glbRotation": 180,
+            "worldPosition": {
+              "x": -37,
+              "y": 0,
+              "z": -10.5
+            },
+            "x": -355,
+            "y": 1870,
+            "rotation": 0,
+            "description": "Back Stall 3"
+          },
+          {
+            "id": "back-stall-4",
+            "name": "Back Stall 4",
+            "fileName": "bar_stool.dxf",
+            "glbFileName": "bar_stool.glb",
+            "glbRotation": 180,
+            "worldPosition": {
+              "x": -34,
+              "y": 0,
+              "z": -10.5
+            },
+            "x": -245,
+            "y": 1870,
+            "rotation": 0,
+            "description": "Back Stall 4"
+          },
+          {
+            "id": "back-stall-5",
+            "name": "Back Stall 5",
+            "fileName": "bar_stool.dxf",
+            "glbFileName": "bar_stool.glb",
+            "glbRotation": 180,
+            "worldPosition": {
+              "x": -31,
+              "y": 0,
+              "z": -10.5
+            },
+            "x": -135,
+            "y": 1870,
+            "rotation": 0,
+            "description": "Back Stall 5"
+          },
+          {
+            "id": "back-stall-6",
+            "name": "Back Stall 6",
+            "fileName": "bar_stool.dxf",
+            "glbFileName": "bar_stool.glb",
+            "glbRotation": 180,
+            "worldPosition": {
+              "x": -35.5,
+              "y": 0,
+              "z": -8.8
+            },
+            "x": -305,
+            "y": 1790,
+            "rotation": 0,
+            "description": "Back Stall 6"
+          },
+          {
+            "id": "back-stall-7",
+            "name": "Back Stall 7",
+            "fileName": "bar_stool.dxf",
+            "glbFileName": "bar_stool.glb",
+            "glbRotation": 180,
+            "worldPosition": {
+              "x": -32.5,
+              "y": 0,
+              "z": -8.8
+            },
+            "x": -177,
+            "y": 1790,
+            "rotation": 0,
+            "description": "Back Stall 7"
+          },
+          {
+            "id": "cameraman-1",
+            "name": "Cameraman 1",
+            "fileName": "camera_man.dxf",
+            "glbFileName": "cameraman-opt.glb",
+            "glbDepth": 80,
+            "worldPosition": {
+              "x": -30.46,
+              "y": 0,
+              "z": -20
+            },
+            "x": -350,
+            "y": 2300,
+            "rotation": 180,
+            "width": 70,
+            "height": 140,
+            "positionOrigin": "center",
+            "description": "Cameraman 1"
+          },
+          {
+            "id": "cameraman-2",
+            "name": "Cameraman 2",
+            "fileName": "camera_man.dxf",
+            "glbFileName": "cameraman-opt.glb",
+            "worldPosition": {
+              "x": -36.53,
+              "y": 0,
+              "z": -20
+            },
+            "glbDepth": 80,
+            "x": -115,
+            "y": 2300,
+            "rotation": 180,
+            "width": 70,
+            "height": 140,
+            "positionOrigin": "center",
+            "description": "Cameraman 2"
+          },
+          {
+            "id": "female-model",
+            "name": "Female Model",
+            "fileName": "female_model.dxf",
+            "glbFileName": "female_model.glb",
+            "worldPosition": {
+              "x": -34,
+              "y": 0,
+              "z": -27.24
+            },
+            "glbWidth": 40,
+            "glbHeight": 40,
+            "glbDepth": 50,
+            "glbRotation": -90,
+            "x": -248,
+            "y": 2600,
+            "rotation": 0,
+            "width": 40,
+            "height": 80,
+            "positionOrigin": "center",
+            "description": "Female Model"
+          },
+          {
+            "id": "console-camera-man-1",
+            "name": "Console Camera Man 1",
+            "fileName": "camera_man.dxf",
+            "x": 3130,
+            "y": 1584,
+            "rotation": -90,
+            "width": 40,
+            "height": 80,
+            "description": "Console Camera Man 1"
+          },
+          {
+            "id": "console-camera-man-2",
+            "name": "Console Camera Man 2",
+            "fileName": "camera_man.dxf",
+            "x": 3130,
+            "y": 1550,
+            "rotation": -90,
+            "width": 40,
+            "height": 80,
+            "description": "Console Camera Man 2"
+          },
+          {
+            "id": "console-camera-man-3",
+            "name": "Console Camera Man 3",
+            "fileName": "camera_man.dxf",
+            "x": 3130,
+            "y": 1515,
+            "rotation": -90,
+            "width": 40,
+            "height": 80,
+            "description": "Console Camera Man 3"
+          }
+        ]
+      }
+    ],
+    "grand-hyatt-mumbai-ballroom": [
+      {
+        "id": "toifa",
+        "name": "Award Night",
+        "description": "Award Night event with custom decorative elements",
+        "objects": [
+          {
+            "id": "toifa-main",
+            "name": "Brand Logo",
+            "fileName": "toifa.dxf",
+            "glbFileName": "gh_logo_2.glb",
+            "glbRotation": 0,
+            "worldPosition": {
+              "x": 12.5,
+              "y": 0,
+              "z": 17
+            },
+            "x": 260,
+            "y": 1113,
+            "rotation": 0,
+            "color": "#0074a4",
+            "description": "Toifa Brand Logo"
+          },
+          {
+            "id": "award",
+            "name": "Award",
+            "showIn2D": false,
+            "glbFileName": "gh_award.glb",
+            "glbRotation": 0,
+            "worldPosition": {
+              "x": 2.6,
+              "y": 0,
+              "z": 11
+            },
+            "x": 260,
+            "y": 1113,
+            "rotation": 0,
+            "description": "Award"
+          },
+          {
+            "id": "award-2",
+            "name": "Award 2",
+            "showIn2D": false,
+            "glbFileName": "gh_award.glb",
+            "glbRotation": 0,
+            "worldPosition": {
+              "x": 5.4,
+              "y": 0,
+              "z": 11
+            },
+            "x": 260,
+            "y": 1113,
+            "rotation": 90,
+            "description": "Award 2"
+          },
+          {
+            "id": "grill",
+            "name": "Grill",
+            "glbFileName": "gh_l_grill.glb",
+            "glbRotation": 0,
+            "showIn2D": false,
+            "worldPosition": {
+              "x": 18.3,
+              "y": 0,
+              "z": 11
+            },
+            "x": 260,
+            "y": 1113,
+            "rotation": 0,
+            "description": "Grill"
+          },
+          {
+            "id": "gh-logo",
+            "name": "GH Logo",
+            "glbFileName": "gh_logo.glb",
+            "showIn2D": false,
+            "glbRotation": 0,
+            "scale": 1.2,
+            "worldPosition": {
+              "x": 19.5,
+              "y": 3.5,
+              "z": 19
+            },
+            "x": 260,
+            "y": 1113,
+            "rotation": 0,
+            "description": "Toifa Brand Logo"
+          },
+          {
+            "id": "toifa-banner-wall",
+            "name": "Feature Banner",
+            "glbFileName": "toifa_banner_2.glb",
+            "glbRotation": 0,
+            "x": -729,
+            "y": 1843,
+            "width": 1200,
+            "height": 220,
+            "showIn2D": false,
+            "mountPointsWorld": {
+              "topLeft": {
+                "x": 22.5,
+                "y": 3,
+                "z": 2.1
+              },
+              "topRight": {
+                "x": 22.5,
+                "y": 3,
+                "z": 16
+              },
+              "bottomRight": {
+                "x": 22.5,
+                "y": 0,
+                "z": 16
+              },
+              "bottomLeft": {
+                "x": 22.5,
+                "y": 0,
+                "z": 2.1
+              }
+            },
+            "description": "Wall-mounted Toifa banner"
+          },
+          {
+            "id": "toifa-banner-wall-2",
+            "name": "Feature Banner 2",
+            "glbFileName": "toifa_banner_1.glb",
+            "glbRotation": 0,
+            "x": -729,
+            "y": 1843,
+            "width": 1200,
+            "height": 220,
+            "showIn2D": false,
+            "mountPointsWorld": {
+              "topLeft": {
+                "x": 15.7,
+                "y": 3,
+                "z": 2.5
+              },
+              "bottomLeft": {
+                "x": 15.7,
+                "y": 0,
+                "z": 2.5
+              },
+              "topRight": {
+                "x": 22.5,
+                "y": 3,
+                "z": 2.5
+              },
+              "bottomRight": {
+                "x": 22.5,
+                "y": 0,
+                "z": 2.5
+              }
+            },
+            "description": "Wall-mounted Toifa banner"
+          },
+          {
+            "id": "toifa-car",
+            "name": "Car",
+            "fileName": "toifa_car.dxf",
+            "glbFileName": "gh_car.glb",
+            "glbWidth": 180,
+            "glbHeight": 143,
+            "glbDepth": 180,
+            "glbRotation": 0,
+            "worldPosition": {
+              "x": -28,
+              "y": 0,
+              "z": 14
+            },
+            "x": -1565,
+            "y": 1296,
+            "rotation": 0,
+            "width": 215,
+            "height": 150,
+            "description": "Toifa Car"
+          },
+          {
+            "id": "console",
+            "name": "Console",
+            "fileName": "console.dxf",
+            "glbFileName": "console-opt.glb",
+            "glbRotation": 0,
+            "depth": 100,
+            "worldPosition": {
+              "x": 3.38,
+              "y": 0,
+              "z": -3
+            },
+            "x": 8,
+            "y": 1820,
+            "rotation": -90,
+            "description": "Console"
+          },
+          {
+            "id": "stall-1",
+            "name": "Stall 1",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "gh_stall_1-opt.glb",
+            "glbWidth": 60,
+            "glbHeight": 70,
+            "glbDepth": 70,
+            "glbRotation": 0,
+            "worldPosition": {
+              "x": -21,
+              "y": 0,
+              "z": 11.5
+            },
+            "x": -1330,
+            "y": 1393,
+            "rotation": 0,
+            "width": 95,
+            "height": 95,
+            "description": "Stall 1"
+          },
+          {
+            "id": "stall-2",
+            "name": "Stall 2",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "gh_stall_2-opt.glb",
+            "worldPosition": {
+              "x": -18.5,
+              "y": 0,
+              "z": 16.3
+            },
+            "x": -1330,
+            "glbWidth": 80,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 0,
+            "y": 1165,
+            "rotation": 0,
+            "width": 95,
+            "height": 95,
+            "description": "Stall 2"
+          },
+          {
+            "id": "stall-3",
+            "name": "Stall 3",
+            "fileName": "stall_1.dxf",
+            "glbFileName": "gh_stall_3-opt.glb",
+            "localEnvironmentReflection": true,
+            "worldPosition": {
+              "x": -12.8,
+              "y": 0,
+              "z": 10.9
+            },
+            "x": -800,
+            "glbWidth": 50,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": -90,
+            "y": 1393,
+            "rotation": 90,
+            "width": 95,
+            "height": 95,
+            "description": "Stall 3"
+          },
+          {
+            "id": "stall-4",
+            "name": "Stall 4",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "gh_stall_4-opt.glb",
+            "worldPosition": {
+              "x": -10.5,
+              "y": 0,
+              "z": 16.3
+            },
+            "x": -685,
+            "glbWidth": 120,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 90,
+            "y": 1165,
+            "rotation": -270,
+            "width": 95,
+            "height": 95,
+            "description": "Stall 4"
+          },
+          {
+            "id": "stall-6",
+            "name": "Stall 6",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "gh_stall_6-opt.glb",
+            "worldPosition": {
+              "x": -5,
+              "y": 0,
+              "z": 16.1
+            },
+            "x": -425,
+            "glbWidth": 65,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 0,
+            "y": 1165,
+            "rotation": 0,
+            "width": 95,
+            "height": 95,
+            "description": "Stall 6"
+          },
+          {
+            "id": "stall-7",
+            "name": "Stall 7",
+            "fileName": "stall_2.dxf",
+            "glbFileName": "gh_stall_7-opt.glb",
+            "worldPosition": {
+              "x": -0.5,
+              "y": 0,
+              "z": 11.5
+            },
+            "x": -290,
+            "glbWidth": 60,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 0,
+            "y": 1393,
+            "rotation": 0,
+            "width": 95,
+            "height": 95,
+            "description": "Stall 7"
+          },
+          {
+            "id": "stair-grill",
+            "name": "Stair Grill",
+            "glbFileName": "gh_stair_grill.glb",
+            "worldPosition": {
+              "x": 19.2,
+              "y": 0.2,
+              "z": 20.9
+            },
+            "showIn2D": false,
+            "x": -290,
+            "glbWidth": 130,
+            "glbHeight": 50,
+            "glbDepth": 50,
+            "glbRotation": 0,
+            "y": 1393,
+            "rotation": 0,
+            "width": 95,
+            "height": 95,
+            "description": "Stair Grill"
+          }
+        ]
+      }
+    ]
+  }
+}

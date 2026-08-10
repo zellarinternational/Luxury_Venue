@@ -1,0 +1,294 @@
+{
+  "countries": [
+    {
+      "id": "india",
+      "name": "India",
+      "tagline": "Top event venues across India",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/mumbai.jpg",
+      "order": 1
+    },
+    {
+      "id": "saudi-arabia",
+      "name": "Saudi Arabia",
+      "tagline": "Top event venues across Saudi Arabia",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/saudi-arabia.jpg",
+      "order": 3
+    },
+    {
+      "id": "qatar",
+      "name": "Qatar",
+      "tagline": "Top event venues across Qatar",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/qatar.jpg",
+      "order": 4
+    },
+    {
+      "id": "usa",
+      "name": "United States",
+      "tagline": "Top event venues across the USA",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/usa.jpg",
+      "order": 7
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "tagline": "Top event venues across Japan",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/japan.jpg",
+      "order": 10,
+      "comingSoon": true
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "tagline": "Top event venues across France",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/france.jpg",
+      "order": 5
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "tagline": "Top event venues across Australia",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/australia.jpg",
+      "order": 9
+    },
+    {
+      "id": "uae",
+      "name": "United Arab Emirates",
+      "tagline": "Top event venues across UAE",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/uae.jpg",
+      "order": 2
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "tagline": "Top event venues across Singapore",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/singapore.jpg",
+      "order": 8
+    },
+    {
+      "id": "uk",
+      "name": "United Kingdom",
+      "tagline": "Top event venues across the UK",
+      "heroSubtitle": "Search and explore premium venues for conferences, weddings, gala dinners and more.",
+      "heroImageUrl": "/uk.jpg",
+      "order": 6
+    }
+  ],
+  "cities": [
+    {
+      "id": "ahmedabad",
+      "countryId": "india",
+      "name": "Ahmedabad",
+      "tagline": "Heritage halls and modern event spaces",
+      "heroTitle": "Ahmedabad venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Ahmedabad.",
+      "heroImageUrl": "/ahemdabad.jpeg"
+    },
+    {
+      "id": "bangalore",
+      "countryId": "india",
+      "name": "Bangalore",
+      "tagline": "Tech hub venues and garden spaces",
+      "heroTitle": "Bangalore venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Bangalore.",
+      "heroImageUrl": "/bangalore.jpg"
+    },
+    {
+      "id": "chandigarh",
+      "countryId": "india",
+      "name": "Chandigarh",
+      "tagline": "Planned city elegance and convention centres",
+      "heroTitle": "Chandigarh venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Chandigarh.",
+      "heroImageUrl": "/Chandigarh.jpeg"
+    },
+    {
+      "id": "chennai",
+      "countryId": "india",
+      "name": "Chennai",
+      "tagline": "Iconic venues in the heart of the city",
+      "heroTitle": "Chennai venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Chennai.",
+      "heroImageUrl": "/Chennai.jpeg"
+    },
+    {
+      "id": "delhi-ncr",
+      "countryId": "india",
+      "name": "Delhi NCR",
+      "tagline": "Capital region venues from heritage to high-rise",
+      "heroTitle": "Delhi NCR venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across New Delhi, Gurgaon and Delhi NCR.",
+      "heroImageUrl": "/delhi.jpg"
+    },
+    {
+      "id": "dubai-city",
+      "countryId": "uae",
+      "name": "Dubai",
+      "tagline": "Luxury towers, desert camps and marina views",
+      "heroTitle": "Dubai venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Dubai.",
+      "heroImageUrl": "/dubai.jpg"
+    },
+    {
+      "id": "goa",
+      "countryId": "india",
+      "name": "Goa",
+      "tagline": "Beach resorts, villas and sunset venues",
+      "heroTitle": "Goa venue hire",
+      "heroSubtitle": "Discover ballrooms, beaches and event spaces across Goa.",
+      "heroImageUrl": "/Goa.jpeg"
+    },
+    {
+      "id": "hyderabad",
+      "countryId": "india",
+      "name": "Hyderabad",
+      "tagline": "Nizam heritage and tech-park venues",
+      "heroTitle": "Hyderabad venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Hyderabad.",
+      "heroImageUrl": "/Hyderabad.jpeg"
+    },
+    {
+      "id": "indore",
+      "countryId": "india",
+      "name": "Indore",
+      "tagline": "Clean city venues and royal palaces",
+      "heroTitle": "Indore venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Indore.",
+      "heroImageUrl": "/indore.jpeg"
+    },
+    {
+      "id": "jaipur",
+      "countryId": "india",
+      "name": "Jaipur",
+      "tagline": "Palace venues and Pink City grandeur",
+      "heroTitle": "Jaipur venue hire",
+      "heroSubtitle": "Discover ballrooms, heritage spaces and event venues across Jaipur.",
+      "heroImageUrl": "/Jaipur.jpeg"
+    },
+    {
+      "id": "kochi",
+      "countryId": "india",
+      "name": "Kochi",
+      "tagline": "Backwaters, fort and waterfront spaces",
+      "heroTitle": "Kochi venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Kochi.",
+      "heroImageUrl": "/kochi.jpeg"
+    },
+    {
+      "id": "kolkata",
+      "countryId": "india",
+      "name": "Kolkata",
+      "tagline": "Colonial ballrooms and cultural hubs",
+      "heroTitle": "Kolkata venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Kolkata.",
+      "heroImageUrl": "/Kolkata.jpeg"
+    },
+    {
+      "id": "london",
+      "countryId": "uk",
+      "name": "London",
+      "tagline": "Historic halls, rooftops and Thames-side spaces",
+      "heroTitle": "London venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across London.",
+      "heroImageUrl": "/london.jpg"
+    },
+    {
+      "id": "los-angeles",
+      "countryId": "usa",
+      "name": "Los Angeles",
+      "tagline": "Hollywood glamour and rooftop LA vibes",
+      "heroTitle": "Los Angeles venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Los Angeles.",
+      "heroImageUrl": "/los-angeles.jpg"
+    },
+    {
+      "id": "lucknow",
+      "countryId": "india",
+      "name": "Lucknow",
+      "tagline": "Nawabi heritage and Awadhi hospitality",
+      "heroTitle": "Lucknow venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Lucknow.",
+      "heroImageUrl": "/Lucknow.jpeg"
+    },
+    {
+      "id": "mumbai",
+      "countryId": "india",
+      "name": "Mumbai",
+      "tagline": "Ballrooms, sea-facing decks and warehouse spaces",
+      "heroTitle": "Mumbai venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Mumbai.",
+      "heroImageUrl": "/mumbai.jpg"
+    },
+    {
+      "id": "new-york-city",
+      "countryId": "usa",
+      "name": "New York City",
+      "tagline": "Skyline lofts, galleries and landmark venues",
+      "heroTitle": "New York City venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across New York City.",
+      "heroImageUrl": "/new-york.jpg"
+    },
+    {
+      "id": "paris",
+      "countryId": "france",
+      "name": "Paris",
+      "tagline": "Hôtels particuliers and Seine-side elegance",
+      "heroTitle": "Paris venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Paris.",
+      "heroImageUrl": "/paris.jpg"
+    },
+    {
+      "id": "pune",
+      "countryId": "india",
+      "name": "Pune",
+      "tagline": "Corporate retreats and hillside venues",
+      "heroTitle": "Pune venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and event spaces across Pune.",
+      "heroImageUrl": "/pune.jpeg"
+    },
+    {
+      "id": "singapore-city",
+      "countryId": "singapore",
+      "name": "Singapore",
+      "tagline": "Marina views, gardens and world-class hotels",
+      "heroTitle": "Singapore venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Singapore.",
+      "heroImageUrl": "/singapore.jpg"
+    },
+    {
+      "id": "sydney",
+      "countryId": "australia",
+      "name": "Sydney",
+      "tagline": "Harbour views and waterfront event spaces",
+      "heroTitle": "Sydney venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Sydney.",
+      "heroImageUrl": "/sydney.jpg"
+    },
+    {
+      "id": "tokyo-city",
+      "countryId": "japan",
+      "name": "Tokyo",
+      "tagline": "Sky-high towers and traditional ryotei style",
+      "heroTitle": "Tokyo venue hire",
+      "heroSubtitle": "Discover ballrooms, rooftops and warehouses across Tokyo.",
+      "heroImageUrl": "/tokyo.jpg"
+    },
+    {
+      "id": "udaipur",
+      "countryId": "india",
+      "name": "Udaipur",
+      "tagline": "Lake palaces and royal havelis",
+      "heroTitle": "Udaipur venue hire",
+      "heroSubtitle": "Discover ballrooms, palaces and event spaces across Udaipur.",
+      "heroImageUrl": "/Udaipur.jpeg"
+    }
+  ]
+}

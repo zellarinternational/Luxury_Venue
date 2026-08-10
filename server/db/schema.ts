@@ -2,6 +2,7 @@ import {
   pgTable,
   text,
   integer,
+  doublePrecision,
   jsonb,
   timestamp,
   uuid,
@@ -21,6 +22,7 @@ export const countries = pgTable("countries", {
   slug: text("slug").notNull().unique(),
   name: text("name").notNull(),
   tagline: text("tagline"),
+  heroSubtitle: text("hero_subtitle"),
   heroImageUrl: text("hero_image_url"),
   order: integer("order").default(0),
   comingSoon: integer("coming_soon").default(0),
@@ -35,6 +37,8 @@ export const cities = pgTable("cities", {
   slug: text("slug").notNull(),
   name: text("name").notNull(),
   tagline: text("tagline"),
+  heroTitle: text("hero_title"),
+  heroSubtitle: text("hero_subtitle"),
   heroImageUrl: text("hero_image_url"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
@@ -50,6 +54,8 @@ export const venues = pgTable("venues", {
   name: text("name").notNull(),
   description: text("description"),
   status: venueStatus("status").notNull().default("coming_soon"),
+  stateId: text("state_id"),
+  stateName: text("state_name"),
   hotelImageUrl: text("hotel_image_url"),
   thumbnailImageUrl: text("thumbnail_image_url"),
   capacitySeated: integer("capacity_seated"),
@@ -71,9 +77,9 @@ export const floorPlans = pgTable("floor_plans", {
   dxfAssetUrl: text("dxf_asset_url"),
   glbAssetUrl: text("glb_asset_url"),
   dxfUnits: text("dxf_units").default("inches"),
-  widthUnits: integer("width_units"),
-  heightUnits: integer("height_units"),
-  scaleFactor: integer("scale_factor"), // world-units-per-DXF-unit for 3D placement; fixes the old 47.5-hardcode drift bug
+  widthUnits: doublePrecision("width_units"),
+  heightUnits: doublePrecision("height_units"),
+  scaleFactor: doublePrecision("scale_factor"), // world-units-per-DXF-unit for 3D placement; fixes the old 47.5-hardcode drift bug
   bounds: jsonb("bounds").$type<{
     topLeft: { x: number; y: number };
     topRight: { x: number; y: number };
@@ -91,6 +97,7 @@ export const floorPlans = pgTable("floor_plans", {
     z: number;
     rotation: number;
   } | null>(),
+  raw: jsonb("raw").$type<Record<string, unknown>>(), // full legacy FloorPlan object, for fields not yet normalized above and migration validation
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -120,12 +127,13 @@ export const stages = pgTable("stages", {
   name: text("name").notNull(),
   dxfAssetUrl: text("dxf_asset_url"),
   glbAssetUrl: text("glb_asset_url"),
-  x: integer("x"),
-  y: integer("y"),
-  rotation: integer("rotation").default(0),
-  width: integer("width"),
-  depth: integer("depth"),
-  backstageDepth: integer("backstage_depth"),
+  x: doublePrecision("x"),
+  y: doublePrecision("y"),
+  rotation: doublePrecision("rotation").default(0),
+  width: doublePrecision("width"),
+  depth: doublePrecision("depth"),
+  zOffset: doublePrecision("z_offset"),
+  backstageDepth: doublePrecision("backstage_depth"),
   backstageSide: text("backstage_side"),
   position3D: jsonb("position_3d").$type<{
     x: number;
@@ -133,6 +141,7 @@ export const stages = pgTable("stages", {
     z: number;
   } | null>(),
   stageObjects: jsonb("stage_objects").$type<Record<string, unknown>[]>(),
+  raw: jsonb("raw").$type<Record<string, unknown>>(), // full legacy StageConfig object
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

@@ -1,0 +1,376 @@
+[
+  {
+    "id": "jw-marriott-juhu-grand-ballroom",
+    "venueId": "jw-marriott-juhu",
+    "venueName": "JW Marriott Juhu",
+    "name": "Grand Ballroom",
+    "description": "Luxurious ballroom with ocean views and world-class amenities",
+    "countryId": "india",
+    "cityId": "mumbai",
+    "hotelImageUrl": "/jw-marriott-juhu.jpg",
+    "thumbnailImageUrl": "/jw-marriott-juhu-hall.jpg",
+    "capacity": {
+      "seated": 400,
+      "standing": 600,
+      "min": 200,
+      "max": 600
+    }
+  },
+  {
+    "id": "taj-lands-end-ballroom",
+    "venueId": "taj-lands-end",
+    "venueName": "Taj Lands End",
+    "name": "Ballroom",
+    "description": "Elegant ballroom with stunning sea views and sophisticated ambiance",
+    "countryId": "india",
+    "cityId": "mumbai",
+    "hotelImageUrl": "/taj-lands.jpg",
+    "thumbnailImageUrl": "/taj-lands-hall.jpg",
+    "capacity": {
+      "seated": 350,
+      "standing": 500,
+      "min": 150,
+      "max": 500
+    }
+  },
+  {
+    "id": "sahara-star-ballroom",
+    "venueId": "hotel-sahara-star",
+    "venueName": "Hotel Sahara Star",
+    "name": "Ballroom",
+    "description": "Magnificent ballroom with unique dome architecture and modern facilities",
+    "countryId": "india",
+    "cityId": "mumbai",
+    "hotelImageUrl": "/sahara.jpg",
+    "thumbnailImageUrl": "/sahara-hall.jpg",
+    "capacity": {
+      "seated": 500,
+      "standing": 800,
+      "min": 200,
+      "max": 800
+    }
+  },
+  {
+    "id": "lalit-ballroom",
+    "venueId": "lalit-hotel",
+    "venueName": "The Lalit Hotel",
+    "name": "Ballroom",
+    "description": "Sophisticated ballroom with contemporary design and premium amenities",
+    "countryId": "india",
+    "cityId": "mumbai",
+    "hotelImageUrl": "/lalit.jpg",
+    "thumbnailImageUrl": "/lalit-hall.jpg",
+    "capacity": {
+      "seated": 450,
+      "standing": 700,
+      "min": 200,
+      "max": 700
+    }
+  },
+  {
+    "id": "jio-world-convention-centre",
+    "venueId": "jio-world-convention-centre",
+    "venueName": "Jio World Convention Centre",
+    "name": "Convention Centre",
+    "description": "State-of-the-art convention centre with cutting-edge technology and grand spaces",
+    "countryId": "india",
+    "cityId": "mumbai",
+    "hotelImageUrl": "/jio.jpg",
+    "thumbnailImageUrl": "/jio-hall.jpg",
+    "capacity": {
+      "seated": 1000,
+      "standing": 2000,
+      "min": 500,
+      "max": 2000
+    }
+  },
+  {
+    "id": "aurika-ballroom",
+    "venueId": "aurika",
+    "venueName": "Aurika",
+    "name": "Ballroom",
+    "description": "Luxurious ballroom with modern architecture and premium event spaces",
+    "countryId": "india",
+    "cityId": "mumbai",
+    "hotelImageUrl": "/aurika.jpg",
+    "thumbnailImageUrl": "/aurika-hall.jpg",
+    "capacity": {
+      "seated": 300,
+      "standing": 450,
+      "min": 100,
+      "max": 450
+    }
+  },
+  {
+    "id": "the-grand-delhi",
+    "venueId": "the-grand-delhi-venue",
+    "venueName": "The Grand",
+    "name": "Main Ballroom",
+    "description": "Premium event space at The Grand, Vasant Kunj, South Delhi",
+    "countryId": "india",
+    "cityId": "delhi-ncr",
+    "hotelImageUrl": "/Th_Grand.jpeg",
+    "thumbnailImageUrl": "/grand-hall.jpg",
+    "capacity": {
+      "seated": 500,
+      "standing": 800,
+      "min": 200,
+      "max": 800
+    }
+  },
+  {
+    "id": "roseate-aerocity",
+    "venueId": "roseate-aerocity-venue",
+    "venueName": "Roseate Aerocity",
+    "name": "Main Ballroom",
+    "description": "Elegant event space at Roseate House, Aerocity hospitality district, New Delhi",
+    "countryId": "india",
+    "cityId": "delhi-ncr",
+    "hotelImageUrl": "/Roseate.jpeg",
+    "thumbnailImageUrl": "/grand-hall.jpg",
+    "capacity": {
+      "seated": 450,
+      "standing": 700,
+      "min": 150,
+      "max": 700
+    }
+  },
+  {
+    "id": "jw-marriott-aerocity",
+    "venueId": "jw-marriott-aerocity-venue",
+    "venueName": "JW Marriott Aerocity",
+    "name": "Main Ballroom",
+    "description": "Sophisticated event venue at JW Marriott Hotel, Aerocity, New Delhi",
+    "countryId": "india",
+    "cityId": "delhi-ncr",
+    "hotelImageUrl": "/Marriott_Aerocity.jpeg",
+    "thumbnailImageUrl": "/grand-hall.jpg",
+    "capacity": {
+      "seated": 550,
+      "standing": 850,
+      "min": 200,
+      "max": 850
+    }
+  },
+  {
+    "id": "taj-palace-new-delhi",
+    "venueId": "taj-palace-new-delhi-venue",
+    "venueName": "Taj Palace",
+    "name": "Main Ballroom",
+    "description": "Iconic luxury venue at Taj Palace, Diplomatic Enclave (Chanakyapuri), New Delhi",
+    "countryId": "india",
+    "cityId": "delhi-ncr",
+    "hotelImageUrl": "/taj.jpeg",
+    "thumbnailImageUrl": "/grand-hall.jpg",
+    "capacity": {
+      "seated": 600,
+      "standing": 950,
+      "min": 250,
+      "max": 950
+    }
+  },
+  {
+    "id": "the-lalit-ambience-gurgaon",
+    "venueId": "the-lalit-ambience-gurgaon-venue",
+    "venueName": "The Lalit, Ambience",
+    "name": "Main Ballroom",
+    "description": "Premium event space at The Lalit, Ambience Mall area, Gurgaon (Gurugram)",
+    "countryId": "india",
+    "cityId": "delhi-ncr",
+    "hotelImageUrl": "/Leela-Gurugram-Hero.webp",
+    "thumbnailImageUrl": "/grand-hall.jpg",
+    "capacity": {
+      "seated": 500,
+      "standing": 800,
+      "min": 200,
+      "max": 800
+    }
+  },
+  {
+    "id": "grand-hyatt-gurgaon",
+    "venueId": "grand-hyatt-gurgaon-venue",
+    "venueName": "The Grand Hyatt",
+    "name": "Main Ballroom",
+    "description": "Luxurious event venue at Grand Hyatt, Sector 58, Golf Course Extension Road, Gurgaon",
+    "countryId": "india",
+    "cityId": "delhi-ncr",
+    "hotelImageUrl": "/the_grand_hyatt.jpeg",
+    "thumbnailImageUrl": "/grand-hall.jpg",
+    "capacity": {
+      "seated": 550,
+      "standing": 900,
+      "min": 200,
+      "max": 900
+    }
+  },
+  {
+    "id": "the-oberoi-gurgaon",
+    "venueId": "the-oberoi-gurgaon-venue",
+    "venueName": "The Oberoi",
+    "name": "Main Ballroom",
+    "description": "Elegant event space at The Oberoi, Udyog Vihar Phase V, Sector 19, Gurgaon",
+    "countryId": "india",
+    "cityId": "delhi-ncr",
+    "hotelImageUrl": "/the_oberoi.jpeg",
+    "thumbnailImageUrl": "/grand-hall.jpg",
+    "capacity": {
+      "seated": 400,
+      "standing": 650,
+      "min": 150,
+      "max": 650
+    }
+  },
+  {
+    "id": "crystal-ballroom",
+    "venueId": "crystal-venue",
+    "venueName": "Crystal Hotel",
+    "name": "Crystal Ballroom",
+    "description": "Luxurious setting for weddings and special events",
+    "countryId": "india",
+    "cityId": "bangalore",
+    "hotelImageUrl": "/bangalore.jpg",
+    "thumbnailImageUrl": "/crystal-ballroom.jpg",
+    "capacity": {
+      "seated": 380,
+      "standing": 580,
+      "min": 150,
+      "max": 580
+    }
+  },
+  {
+    "id": "royal-garden",
+    "venueId": "royal-venue",
+    "venueName": "Royal Garden Hotel",
+    "name": "Royal Garden",
+    "description": "Beautiful outdoor venue with garden setting",
+    "countryId": "usa",
+    "cityId": "los-angeles",
+    "hotelImageUrl": "/los-angeles.jpg",
+    "thumbnailImageUrl": "/los-angeles.jpg",
+    "capacity": {
+      "seated": 300,
+      "standing": 500,
+      "min": 100,
+      "max": 500
+    }
+  },
+  {
+    "id": "manhattan-center",
+    "venueId": "manhattan-venue",
+    "venueName": "Manhattan Center Hotel",
+    "name": "Manhattan Center",
+    "description": "Modern venue in the heart of New York City",
+    "countryId": "usa",
+    "cityId": "new-york-city",
+    "hotelImageUrl": "/new-york.jpg",
+    "thumbnailImageUrl": "/new-york.jpg",
+    "capacity": {
+      "seated": 520,
+      "standing": 820,
+      "min": 200,
+      "max": 820
+    }
+  },
+  {
+    "id": "tokyo-tower-hall",
+    "venueId": "tokyo-venue",
+    "venueName": "Tokyo Tower Hotel",
+    "name": "Tokyo Tower Hall",
+    "description": "Elegant venue with panoramic city views",
+    "countryId": "japan",
+    "cityId": "tokyo-city",
+    "hotelImageUrl": "/tokyo.jpg",
+    "thumbnailImageUrl": "/tokyo.jpg",
+    "capacity": {
+      "seated": 400,
+      "standing": 620,
+      "min": 150,
+      "max": 620
+    }
+  },
+  {
+    "id": "paris-grand-ballroom",
+    "venueId": "paris-venue",
+    "venueName": "Paris Grand Hotel",
+    "name": "Paris Grand Ballroom",
+    "description": "Classic French elegance in the heart of Paris",
+    "countryId": "france",
+    "cityId": "paris",
+    "hotelImageUrl": "/paris.jpg",
+    "thumbnailImageUrl": "/paris.jpg",
+    "capacity": {
+      "seated": 450,
+      "standing": 700,
+      "min": 200,
+      "max": 700
+    }
+  },
+  {
+    "id": "sydney-harbor-venue",
+    "venueId": "sydney-venue",
+    "venueName": "Sydney Harbor Hotel",
+    "name": "Sydney Harbor Venue",
+    "description": "Stunning waterfront venue with harbor views",
+    "countryId": "australia",
+    "cityId": "sydney",
+    "hotelImageUrl": "/sydney.jpg",
+    "thumbnailImageUrl": "/sydney.jpg",
+    "capacity": {
+      "seated": 350,
+      "standing": 550,
+      "min": 120,
+      "max": 550
+    }
+  },
+  {
+    "id": "dubai-palace",
+    "venueId": "dubai-venue",
+    "venueName": "Dubai Palace Hotel",
+    "name": "Dubai Palace",
+    "description": "Luxurious venue in the heart of Dubai",
+    "countryId": "uae",
+    "cityId": "dubai-city",
+    "hotelImageUrl": "/dubai.jpg",
+    "thumbnailImageUrl": "/dubai.jpg",
+    "capacity": {
+      "seated": 700,
+      "standing": 1100,
+      "min": 300,
+      "max": 1100
+    }
+  },
+  {
+    "id": "singapore-pavilion",
+    "venueId": "singapore-venue",
+    "venueName": "Singapore Pavilion Hotel",
+    "name": "Singapore Pavilion",
+    "description": "Modern venue with tropical garden setting",
+    "countryId": "singapore",
+    "cityId": "singapore-city",
+    "hotelImageUrl": "/singapore.jpg",
+    "thumbnailImageUrl": "/singapore.jpg",
+    "capacity": {
+      "seated": 320,
+      "standing": 500,
+      "min": 100,
+      "max": 500
+    }
+  },
+  {
+    "id": "london-palace",
+    "venueId": "london-venue",
+    "venueName": "London Palace Hotel",
+    "name": "London Palace",
+    "description": "Historic venue with British elegance",
+    "countryId": "uk",
+    "cityId": "london",
+    "hotelImageUrl": "/london.jpg",
+    "thumbnailImageUrl": "/london.jpg",
+    "capacity": {
+      "seated": 480,
+      "standing": 750,
+      "min": 200,
+      "max": 750
+    }
+  }
+]

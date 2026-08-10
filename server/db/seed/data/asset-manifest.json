@@ -1,0 +1,426 @@
+[
+  {
+    "legacyPath": "GRAND HAYAT.glb",
+    "canonicalAssetId": "grand-hayat",
+    "kind": "glb",
+    "sizeBytes": 5086932,
+    "sha256": "453a74a04ffaed7770f96f7df00de8bd197f0e2867f6fc5cc63c3ee79cb98234",
+    "r2Key": "assets/glb/GRAND HAYAT.glb"
+  },
+  {
+    "legacyPath": "Stage_Design_2.dxf",
+    "canonicalAssetId": "stage-design-2",
+    "kind": "dxf",
+    "sizeBytes": 81145,
+    "sha256": "566fe15a105399a4eb98b7e6f5a9b8488641f130672074a15e2873507b9c497d",
+    "r2Key": "assets/dxf/Stage_Design_2.dxf"
+  },
+  {
+    "legacyPath": "Stage_Design_New.dxf",
+    "canonicalAssetId": "stage-design-new",
+    "kind": "dxf",
+    "sizeBytes": 83675,
+    "sha256": "f838d039a30e6d6a68a2700b09a7055d6d0abfe1d6c67d128329b49497821f70",
+    "r2Key": "assets/dxf/Stage_Design_New.dxf"
+  },
+  {
+    "legacyPath": "bar_stool.dxf",
+    "canonicalAssetId": "bar-stool",
+    "kind": "dxf",
+    "sizeBytes": 78077,
+    "sha256": "5cb9ef89a4cadac4ad29cdead281c9da34e07bdf1dae9f886608c3394929b426",
+    "r2Key": "assets/dxf/bar_stool.dxf"
+  },
+  {
+    "legacyPath": "bar_stool.glb",
+    "canonicalAssetId": "bar-stool",
+    "kind": "glb",
+    "sizeBytes": 10163232,
+    "sha256": "9848394dfb2df5d8c1adad6658ecbc976dcbbaef3fa2213fe2753197fc0afc33",
+    "r2Key": "assets/glb/bar_stool.glb"
+  },
+  {
+    "legacyPath": "booth_1.glb",
+    "canonicalAssetId": "booth-1",
+    "kind": "glb",
+    "sizeBytes": 24301328,
+    "sha256": "7e42b823eac20011f5757b37c3e385deb4a70d4741ed808621599da047ab860d",
+    "r2Key": "assets/glb/booth_1.glb"
+  },
+  {
+    "legacyPath": "camera_man.dxf",
+    "canonicalAssetId": "camera-man",
+    "kind": "dxf",
+    "sizeBytes": 675727,
+    "sha256": "38342137d611e3eb091dca3f3df478c47a519916e8632fdd7d6e878fa922cbc2",
+    "r2Key": "assets/dxf/camera_man.dxf"
+  },
+  {
+    "legacyPath": "cameraman-opt.glb",
+    "canonicalAssetId": "cameraman-opt",
+    "kind": "glb",
+    "sizeBytes": 8972104,
+    "sha256": "c675fb4b4fc76efc4d177ee234b02b1896ebff5d1d33cb72cddeaf33762633b4",
+    "r2Key": "assets/glb/cameraman-opt.glb"
+  },
+  {
+    "legacyPath": "car.glb",
+    "canonicalAssetId": "car",
+    "kind": "glb",
+    "sizeBytes": 36232364,
+    "sha256": "f6d20b0697a237779f77772f27fc4c601a73b46a7689b76934cbbc1040a34a0b",
+    "r2Key": "assets/glb/car.glb"
+  },
+  {
+    "legacyPath": "console-opt.glb",
+    "canonicalAssetId": "console-opt",
+    "kind": "glb",
+    "sizeBytes": 13947580,
+    "sha256": "834a045ee9fe4be75db2c817c2212bf5d5c58e46381e7c7071d82d7630b48218",
+    "r2Key": "assets/glb/console-opt.glb"
+  },
+  {
+    "legacyPath": "console.dxf",
+    "canonicalAssetId": "console",
+    "kind": "dxf",
+    "sizeBytes": 693830,
+    "sha256": "a318b27bdb76fd4be6bdec0dd80eb4d8a94296341c371c3eee8dfb1b362095c3",
+    "r2Key": "assets/dxf/console.dxf"
+  },
+  {
+    "legacyPath": "female_model.dxf",
+    "canonicalAssetId": "female-model",
+    "kind": "dxf",
+    "sizeBytes": 1343252,
+    "sha256": "771029ba3860c04ec043d29b2ca7c44e4fae7e5e76feb49d87feac4db57e83f3",
+    "r2Key": "assets/dxf/female_model.dxf"
+  },
+  {
+    "legacyPath": "female_model.glb",
+    "canonicalAssetId": "female-model",
+    "kind": "glb",
+    "sizeBytes": 11805220,
+    "sha256": "0076717473726fb8ba5c1aa692ef2416420eb1d6a45e96f3b44441d4af268025",
+    "r2Key": "assets/glb/female_model.glb"
+  },
+  {
+    "legacyPath": "floor-plan-opt.glb",
+    "canonicalAssetId": "floor-plan-opt",
+    "kind": "glb",
+    "sizeBytes": 80440240,
+    "sha256": "e635d6af3ef75c844501695d85dca73191925e76e2db0a123dc86ae260f139e2",
+    "r2Key": "assets/glb/floor-plan-opt.glb"
+  },
+  {
+    "legacyPath": "floor-plan.dxf",
+    "canonicalAssetId": "floor-plan",
+    "kind": "dxf",
+    "sizeBytes": 10609664,
+    "sha256": "b334aac0f2390fbc57eed41777ebcfc085f5bbc8a5a79ff4349d666fa005e902",
+    "r2Key": "assets/dxf/floor-plan.dxf"
+  },
+  {
+    "legacyPath": "gh_award.glb",
+    "canonicalAssetId": "gh-award",
+    "kind": "glb",
+    "sizeBytes": 2549856,
+    "sha256": "534a08db04a96ddf312f0a719935222ea291186ab4c112702580569ae8441b78",
+    "r2Key": "assets/glb/gh_award.glb"
+  },
+  {
+    "legacyPath": "gh_car.glb",
+    "canonicalAssetId": "gh-car",
+    "kind": "glb",
+    "sizeBytes": 8032296,
+    "sha256": "ae5d1bad42719e687ee465095de2b81a348da285b27838e299b5c183c20e3d47",
+    "r2Key": "assets/glb/gh_car.glb"
+  },
+  {
+    "legacyPath": "gh_console.glb",
+    "canonicalAssetId": "gh-console",
+    "kind": "glb",
+    "sizeBytes": 3016936,
+    "sha256": "5e9ae0518767700d44ca9cbc9536a315133f34d9e174d78a4b1a14276258ccd0",
+    "r2Key": "assets/glb/gh_console.glb"
+  },
+  {
+    "legacyPath": "gh_gray_chair-opt.glb",
+    "canonicalAssetId": "gh-gray-chair-opt",
+    "kind": "glb",
+    "sizeBytes": 669492,
+    "sha256": "05716144663bd37b1697018751ae08687ddb9b068ede3a906c587d4ae1c2b067",
+    "r2Key": "assets/glb/gh_gray_chair-opt.glb"
+  },
+  {
+    "legacyPath": "gh_l_grill.glb",
+    "canonicalAssetId": "gh-l-grill",
+    "kind": "glb",
+    "sizeBytes": 2560240,
+    "sha256": "c184240e062a2e1edb0303aad5274210259be3b88ce7efc6b7fe2d4b6661f51a",
+    "r2Key": "assets/glb/gh_l_grill.glb"
+  },
+  {
+    "legacyPath": "gh_logo.glb",
+    "canonicalAssetId": "gh-logo",
+    "kind": "glb",
+    "sizeBytes": 77072,
+    "sha256": "5019125e558343997cac297ca751abd2d2630bf51b53d7963d02ff5145cbf5b1",
+    "r2Key": "assets/glb/gh_logo.glb"
+  },
+  {
+    "legacyPath": "gh_logo_2.glb",
+    "canonicalAssetId": "gh-logo-2",
+    "kind": "glb",
+    "sizeBytes": 156804,
+    "sha256": "87b9b987f016619b46c715f15822f0cbda36ed9954a4809dda76df22eeb95ec1",
+    "r2Key": "assets/glb/gh_logo_2.glb"
+  },
+  {
+    "legacyPath": "gh_riser.glb",
+    "canonicalAssetId": "gh-riser",
+    "kind": "glb",
+    "sizeBytes": 1956,
+    "sha256": "f3597e5d7b3ce4f6ff26d6e3e594fce0f4be20f1c363d750eae1d1ed35f86bba",
+    "r2Key": "assets/glb/gh_riser.glb"
+  },
+  {
+    "legacyPath": "gh_stair_grill.glb",
+    "canonicalAssetId": "gh-stair-grill",
+    "kind": "glb",
+    "sizeBytes": 38112,
+    "sha256": "da6b9bb5c4543b6336e5baa8a6d2e3d7a374be16a8684ab28639e7c4217282f5",
+    "r2Key": "assets/glb/gh_stair_grill.glb"
+  },
+  {
+    "legacyPath": "gh_stall_1-opt.glb",
+    "canonicalAssetId": "gh-stall-1-opt",
+    "kind": "glb",
+    "sizeBytes": 2451256,
+    "sha256": "0da563b229b253a7d5c324c2f9378f8f139ac668b3dd1885201defcb88d770f4",
+    "r2Key": "assets/glb/gh_stall_1-opt.glb"
+  },
+  {
+    "legacyPath": "gh_stall_2-opt.glb",
+    "canonicalAssetId": "gh-stall-2-opt",
+    "kind": "glb",
+    "sizeBytes": 2851036,
+    "sha256": "c4a476569adafab55cf48943ec6383ea85a03f2e56a227dd55229d1ff260be78",
+    "r2Key": "assets/glb/gh_stall_2-opt.glb"
+  },
+  {
+    "legacyPath": "gh_stall_3-opt.glb",
+    "canonicalAssetId": "gh-stall-3-opt",
+    "kind": "glb",
+    "sizeBytes": 2301504,
+    "sha256": "3eba62a783de4576c36adf4ae6eec07b0afef8a523e949d737e686516e3c9ce1",
+    "r2Key": "assets/glb/gh_stall_3-opt.glb"
+  },
+  {
+    "legacyPath": "gh_stall_4-opt.glb",
+    "canonicalAssetId": "gh-stall-4-opt",
+    "kind": "glb",
+    "sizeBytes": 12348300,
+    "sha256": "c56bd433e8104cdc7f2ee806400f8d8e27b9137f38a320d923454c0d22aebe5b",
+    "r2Key": "assets/glb/gh_stall_4-opt.glb"
+  },
+  {
+    "legacyPath": "gh_stall_6-opt.glb",
+    "canonicalAssetId": "gh-stall-6-opt",
+    "kind": "glb",
+    "sizeBytes": 1849740,
+    "sha256": "faa84127f71041cd1a60b18e355892bd36b90341ef7eb233e8588ae485b4673a",
+    "r2Key": "assets/glb/gh_stall_6-opt.glb"
+  },
+  {
+    "legacyPath": "gh_stall_7-opt.glb",
+    "canonicalAssetId": "gh-stall-7-opt",
+    "kind": "glb",
+    "sizeBytes": 50196,
+    "sha256": "6036849d61ec5ceb606e546202319f1badae82a68242c85933112a8f1f04806a",
+    "r2Key": "assets/glb/gh_stall_7-opt.glb"
+  },
+  {
+    "legacyPath": "gh_table_chair_2_opt.glb",
+    "canonicalAssetId": "gh-table-chair-2-opt",
+    "kind": "glb",
+    "sizeBytes": 5562984,
+    "sha256": "f974c9be3a4eaad25289f7e9cab9d4d74f59dbce2ef38edb21e435970369b200",
+    "r2Key": "assets/glb/gh_table_chair_2_opt.glb"
+  },
+  {
+    "legacyPath": "grand_hyatt_floor.dxf",
+    "canonicalAssetId": "grand-hyatt-floor",
+    "kind": "dxf",
+    "sizeBytes": 1750613,
+    "sha256": "34ef60004b4d4444e2c848fa7aca1a0d87fd30bff3ec0a4f1b7040347927479e",
+    "r2Key": "assets/dxf/grand_hyatt_floor.dxf"
+  },
+  {
+    "legacyPath": "logo.glb",
+    "canonicalAssetId": "logo",
+    "kind": "glb",
+    "sizeBytes": 150484,
+    "sha256": "8eaf7741b26f40b78c7f8d3427d1d6e31ef9f80679ffcf02517634e20569a96e",
+    "r2Key": "assets/glb/logo.glb"
+  },
+  {
+    "legacyPath": "main stage.glb",
+    "canonicalAssetId": "main-stage",
+    "kind": "glb",
+    "sizeBytes": 2582044,
+    "sha256": "277702edcdf917d17e740cc2bc77b60ab88bedb1bcc2868168f56704e23c6996",
+    "r2Key": "assets/glb/main stage.glb"
+  },
+  {
+    "legacyPath": "single_chair.dxf",
+    "canonicalAssetId": "single-chair",
+    "kind": "dxf",
+    "sizeBytes": 79828,
+    "sha256": "6723ced9e2878cb9b3ccbcd0b7127e3d00b5d412b856d8cbbfe4e2cf7416d3f1",
+    "r2Key": "assets/dxf/single_chair.dxf"
+  },
+  {
+    "legacyPath": "single_chair.glb",
+    "canonicalAssetId": "single-chair",
+    "kind": "glb",
+    "sizeBytes": 6249888,
+    "sha256": "a98179a7cd27f3e19bd5e305037d623f800aece7746c9455803b1ff78acdae4f",
+    "r2Key": "assets/glb/single_chair.glb"
+  },
+  {
+    "legacyPath": "stage_2.glb",
+    "canonicalAssetId": "stage-2",
+    "kind": "glb",
+    "sizeBytes": 37229520,
+    "sha256": "e9bd6aba09b76312874a198eb7e59dfe10925f860e86820c8aa2f0d5da8c46b5",
+    "r2Key": "assets/glb/stage_2.glb"
+  },
+  {
+    "legacyPath": "stage_3.glb",
+    "canonicalAssetId": "stage-3",
+    "kind": "glb",
+    "sizeBytes": 42404752,
+    "sha256": "276b7a55d5a7161cba8044a79f9af397b55a9f95bc1517bc954aeae678abc516",
+    "r2Key": "assets/glb/stage_3.glb"
+  },
+  {
+    "legacyPath": "stall_1.dxf",
+    "canonicalAssetId": "stall-1",
+    "kind": "dxf",
+    "sizeBytes": 154249,
+    "sha256": "5c00adb33769d4e47640579bfcd61ec9239def209464443d2d192f28876cb111",
+    "r2Key": "assets/dxf/stall_1.dxf"
+  },
+  {
+    "legacyPath": "stall_2.dxf",
+    "canonicalAssetId": "stall-2",
+    "kind": "dxf",
+    "sizeBytes": 279197,
+    "sha256": "7ea5a02679d69053817129ca2e0a7217b79f9fe228bb070a27aa16fcd2e94806",
+    "r2Key": "assets/dxf/stall_2.dxf"
+  },
+  {
+    "legacyPath": "t-truss-l.glb",
+    "canonicalAssetId": "t-truss-l",
+    "kind": "glb",
+    "sizeBytes": 82556,
+    "sha256": "8d806264a5064a9bb039fa261950819e63a2490e106fef12bd1240b4d271b8d6",
+    "r2Key": "assets/glb/t-truss-l.glb"
+  },
+  {
+    "legacyPath": "t-truss-r.glb",
+    "canonicalAssetId": "t-truss-r",
+    "kind": "glb",
+    "sizeBytes": 82272,
+    "sha256": "b1b49e6aff10155b0831c21bf28dd62433f009fe624b8cf4cc5b0105fd8af907",
+    "r2Key": "assets/glb/t-truss-r.glb"
+  },
+  {
+    "legacyPath": "table_set.dxf",
+    "canonicalAssetId": "table-set",
+    "kind": "dxf",
+    "sizeBytes": 91219,
+    "sha256": "e8ced1fb688a2018afe354bcc391ac5df847f710a92a4a6d7eaa18964ddc96a7",
+    "r2Key": "assets/dxf/table_set.dxf"
+  },
+  {
+    "legacyPath": "table_with_8_chair.glb",
+    "canonicalAssetId": "table-with-8-chair",
+    "kind": "glb",
+    "sizeBytes": 18441876,
+    "sha256": "4cd0dbe64ef0046d196cc671767a1a1456f3c3b293f0cbe0a28c2e39e2c5d54f",
+    "r2Key": "assets/glb/table_with_8_chair.glb"
+  },
+  {
+    "legacyPath": "times-power-women.dxf",
+    "canonicalAssetId": "times-power-women",
+    "kind": "dxf",
+    "sizeBytes": 1950281,
+    "sha256": "ea61a5a0aa128d65198e1c3daace4da85c7300cd33ab02cbd2cd6fd6d2cf6219",
+    "r2Key": "assets/dxf/times-power-women.dxf"
+  },
+  {
+    "legacyPath": "times-power-women.glb",
+    "canonicalAssetId": "times-power-women",
+    "kind": "glb",
+    "sizeBytes": 379388,
+    "sha256": "61a7f3f18dcf1dd06f8b9722b69e7b8abe412b256a49bf2f00e17844b38abbb2",
+    "r2Key": "assets/glb/times-power-women.glb"
+  },
+  {
+    "legacyPath": "toifa.dxf",
+    "canonicalAssetId": "toifa",
+    "kind": "dxf",
+    "sizeBytes": 17358,
+    "sha256": "bb8b2118ed459ae4d4460e58ab94f302645bfb5235ade716d29c19c6d3f9cc32",
+    "r2Key": "assets/dxf/toifa.dxf"
+  },
+  {
+    "legacyPath": "toifa_banner_1.glb",
+    "canonicalAssetId": "toifa-banner-1",
+    "kind": "glb",
+    "sizeBytes": 824308,
+    "sha256": "3f1078a39307b87f5a8de2d9e3acfe0ad165f688777097ac5c6fd5f4be83dc28",
+    "r2Key": "assets/glb/toifa_banner_1.glb"
+  },
+  {
+    "legacyPath": "toifa_banner_2.glb",
+    "canonicalAssetId": "toifa-banner-2",
+    "kind": "glb",
+    "sizeBytes": 824300,
+    "sha256": "05d7b506bd1ca9c7ee8e7c46bea796f890f74f1daa9e3f7200f5eb973adab510",
+    "r2Key": "assets/glb/toifa_banner_2.glb"
+  },
+  {
+    "legacyPath": "toifa_banner_3.glb",
+    "canonicalAssetId": "toifa-banner-3",
+    "kind": "glb",
+    "sizeBytes": 824312,
+    "sha256": "64b6915f74483ebf30784f079cfc74f5010455522d8e297f69afeb28e9d3bb58",
+    "r2Key": "assets/glb/toifa_banner_3.glb"
+  },
+  {
+    "legacyPath": "toifa_car.dxf",
+    "canonicalAssetId": "toifa-car",
+    "kind": "dxf",
+    "sizeBytes": 538863,
+    "sha256": "f4e5133fb3711a17da2dd18ddb78784743bc2869dabdf5d38a63a89684559d23",
+    "r2Key": "assets/dxf/toifa_car.dxf"
+  },
+  {
+    "legacyPath": "toifa_stage.dxf",
+    "canonicalAssetId": "toifa-stage",
+    "kind": "dxf",
+    "sizeBytes": 292902,
+    "sha256": "6b8642fbc9fc88b6bd7dbfff81b563c265d2963d80a28b68a07cf3e409b57ff7",
+    "r2Key": "assets/dxf/toifa_stage.dxf"
+  },
+  {
+    "legacyPath": "toifa_stage.glb",
+    "canonicalAssetId": "toifa-stage",
+    "kind": "glb",
+    "sizeBytes": 64607144,
+    "sha256": "58ff64f9bfeb42dbf76c833a982a96b17c59a9a693d5c3f3ef70d3df0dc55e41",
+    "r2Key": "assets/glb/toifa_stage.glb"
+  }
+]
