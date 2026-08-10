@@ -44,6 +44,20 @@ interface HallState {
   setViewMode: (mode: ViewMode) => void;
   reset: () => void;
 
+  /**
+   * Applies a shared-config snapshot (from sharedConfigs.getByShortCode) on
+   * top of already-loaded geometry — used by the /share/[shortCode] page and
+   * by the originating /hall page when a remote edit arrives via polling.
+   * Assumes `loadGeometry` has already run for the snapshot's floorPlanId.
+   */
+  applySharedState: (snapshot: {
+    guestCount: number;
+    seatingMode: SeatingMode | null;
+    selectedTableAreaId: string | null;
+    customTableArea: TableConfig | null;
+    selectedStageId: string | null;
+  }) => void;
+
   selectedTableArea: () => TableConfig | null;
   selectedStage: () => StageGeometry | null;
   /**
@@ -202,6 +216,21 @@ export const useHallStore = create<HallState>((set, get) => ({
         customTableArea: null,
         selectedTableAreaId: fallbackId,
         placedObjects: recompute(state.geometry, fallbackId, null, state.guestCount, state.seatingModeOverride),
+      };
+    }),
+
+  applySharedState: (snapshot) =>
+    set((state) => {
+      const tableAreaId = snapshot.customTableArea ? CUSTOM_AREA_ID : snapshot.selectedTableAreaId;
+      return {
+        guestCount: snapshot.guestCount,
+        seatingModeOverride: snapshot.seatingMode,
+        selectedTableAreaId: tableAreaId,
+        customTableArea: snapshot.customTableArea,
+        selectedStageId: snapshot.selectedStageId,
+        isSelectingCustomArea: false,
+        customAreaPoints: [],
+        placedObjects: recompute(state.geometry, tableAreaId, snapshot.customTableArea, snapshot.guestCount, snapshot.seatingMode),
       };
     }),
 

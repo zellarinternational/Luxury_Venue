@@ -100,7 +100,7 @@ export function HallClient() {
 
   return (
     <div className="flex h-screen bg-[var(--color-background)]">
-      <HallControls />
+      <HallControls venueId={venueQuery.data.id} />
       <div className="flex-1 relative">
         <div className="absolute top-4 left-4 z-10">
           <Link href="/">

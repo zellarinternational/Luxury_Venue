@@ -201,13 +201,14 @@ export const sharedConfigs = pgTable("shared_configs", {
   floorPlanId: uuid("floor_plan_id")
     .notNull()
     .references(() => floorPlans.id),
-  placedObjects: jsonb("placed_objects").$type<Record<string, unknown>[]>(),
   guestCount: integer("guest_count").default(0),
   seatingMode: seatingMode("seating_mode").default("auto"),
+  selectedTableAreaId: uuid("selected_table_area_id"),
+  // Full TableConfig for a custom-drawn (not DB-backed) seating area — mutually
+  // exclusive with selectedTableAreaId; see hall-planner/store.ts's CUSTOM_AREA_ID.
+  customTableArea: jsonb("custom_table_area").$type<Record<string, unknown> | null>(),
   selectedStageId: uuid("selected_stage_id"),
   selectedEventThemeId: uuid("selected_event_theme_id"),
-  manualTableCount: integer("manual_table_count"),
-  manualChairCount: integer("manual_chair_count"),
   version: integer("version").notNull().default(1), // optimistic concurrency: UPDATE ... WHERE version = $current
   expiresAt: timestamp("expires_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),

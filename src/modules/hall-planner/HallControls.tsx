@@ -3,6 +3,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import { useHallStore, type ViewMode } from "./store";
 import { getTableArrangementStats } from "./placement/tableCalculator";
+import { ShareButton } from "./sharing/ShareButton";
 import { cn } from "@/lib/cn";
 
 const SEATING_MODES = [
@@ -17,7 +18,7 @@ const VIEW_MODES: { value: ViewMode; label: string }[] = [
   { value: "walk", label: "3D walk" },
 ];
 
-export function HallControls() {
+export function HallControls({ venueId }: { venueId: string }) {
   const geometry = useHallStore((s) => s.geometry);
   const guestCount = useHallStore((s) => s.guestCount);
   const seatingModeOverride = useHallStore((s) => s.seatingModeOverride);
@@ -42,6 +43,8 @@ export function HallControls() {
 
   return (
     <aside className="w-72 shrink-0 border-r border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-6 overflow-y-auto">
+      <ShareButton venueId={venueId} />
+
       <div>
         <span className="text-sm font-medium text-[var(--color-foreground)] block mb-2">View</span>
         <Tabs.Root value={viewMode} onValueChange={(v) => setViewMode(v as ViewMode)}>
